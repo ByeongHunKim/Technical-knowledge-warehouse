@@ -1,8 +1,8 @@
 # DevOps Camino of Akaps
 
-\[Gitbook-**link]\(**[https://akaps.gitbook.io/devops-camino/](https://akaps.gitbook.io/devops-camino/))
+[Gitbook-link](https://akaps.gitbook.io/devops-camino/)
 
-\
+
 **as-is**
 
 * notion에 일일 기록을 작성했다
