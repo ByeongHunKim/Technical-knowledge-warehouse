@@ -6,7 +6,8 @@
 * [3월](2024/3/README.md)
   * [29일](2024/3/3-29.md)
 * [4월](2024/4/README.md)
-  * [고민들](2024/4/undefined.md)
+  * [업무 기록](2024/4/undefined.md)
+  * [고민들](2024/4/undefined-1.md)
   * [1일](2024/4/1.md)
 
 ## Gitlab
