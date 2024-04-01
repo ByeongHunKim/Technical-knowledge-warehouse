@@ -4,5 +4,5 @@
 인그레스는 pod 가 아니라 서비스로 연결해줘야한다. ingress -> service -> deployment(pod)
 {% endhint %}
 
-
+{% embed url="https://github.com/ByeongHunKim/Kubernetes/tree/main/ingress" %}
 
