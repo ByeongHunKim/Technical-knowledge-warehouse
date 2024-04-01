@@ -1,8 +1,13 @@
-# 수동으로 ingress 배포하기
+# Ingress란
 
-{% hint style="info" %}
-인그레스는 pod 가 아니라 서비스로 연결해줘야한다. ingress -> service -> deployment(pod)
-{% endhint %}
+{% embed url="https://kubernetes.io/ko/docs/concepts/services-networking/ingress/" %}
 
-{% embed url="https://github.com/ByeongHunKim/Kubernetes/tree/main/ingress" %}
+* ingress는 클러스터 외부에서 클러스터 내부 서비스로 HTTP와 HTTPS 경로를 노출한다
+* 트래픽 라우팅은 ingress 리소스에 정의된 규칙에 의해 컨트롤된다
+
+
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>모든 트래픽을 하나의 서비스로 보내는 예시</p></figcaption></figure>
+
+
 

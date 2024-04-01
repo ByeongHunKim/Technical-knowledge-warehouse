@@ -17,4 +17,5 @@
 ## Kubernetes
 
 * [Ingress](kubernetes/ingress/README.md)
-  * [수동으로 ingress 배포하기](kubernetes/ingress/ingress.md)
+  * [Ingress란](kubernetes/ingress/ingress.md)
+  * [수동으로 ingress 배포하기](kubernetes/ingress/ingress-1.md)
