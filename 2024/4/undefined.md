@@ -1,4 +1,4 @@
-# 업무 기록
+# 업무 일지
 
 ### 4월 1일 월요일
 
@@ -28,7 +28,7 @@
   * roadmap 추가
   * 딥다이브 항목 체크
 * devops 지원 업무
-  * 인호님 aws 계정 발급 및 eks 연결 가이드
+  * 개발자분 aws 계정 발급 및 eks 연결 가이드
   * play cluster에 prometheus ingress 수동 배포
 
 할일
@@ -40,5 +40,28 @@
 
 * 주간 운영 담당자 조정
 
+***
 
+### 4월 3일
 
+한일
+
+* DevOps 파트 마일스톤2&#x20;
+  * Grafana 대시보드, Alert 환경 구성 - 로그 패턴 조회 및 Alert 생성
+    * alert bot 으로  사용할 slack app 추가 후 테스트 채널 생성
+    * contact point, alert rule, notification policy 설정
+    * alert test 진행
+* devops 지원 업무
+  * point-app 배포 지원&#x20;
+  * IRSA 설정 업무 지원
+
+할일
+
+* 마일스톤 2 업무
+  *
+
+이슈 및 문의사항
+
+* Grafana 대시보드, Alert 환경 구성 - 로그 패턴 조회 및 Alert 생성
+  * alert test 진행은 잘 되어서 point-api의 logging tracing 시도를 해봤는데 firing 에러가 발생해서 원인 파악 중
+    * Failed to load the data source configuration for [Loki](https://logging.dev.memecore.org/datasources/edit/P8E80F9AEF21F6940): Unable to fetch alert rules. Is the Loki data source properly configured?
