@@ -21,3 +21,7 @@
   * [Ingress란](kubernetes/ingress/ingress.md)
   * [수동으로 ingress 배포하기](kubernetes/ingress/ingress-1.md)
 * [Security](kubernetes/security.md)
+
+## Tips
+
+* [Kubernetes](tips/kubernetes.md)
