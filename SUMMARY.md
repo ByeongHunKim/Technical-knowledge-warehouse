@@ -9,6 +9,7 @@
   * [업무 기록](2024/4/undefined.md)
   * [고민들](2024/4/undefined-1.md)
   * [1일](2024/4/1.md)
+  * [2일](2024/4/2.md)
 
 ## Gitlab
 
@@ -19,3 +20,4 @@
 * [Ingress](kubernetes/ingress/README.md)
   * [Ingress란](kubernetes/ingress/ingress.md)
   * [수동으로 ingress 배포하기](kubernetes/ingress/ingress-1.md)
+* [Security](kubernetes/security.md)
