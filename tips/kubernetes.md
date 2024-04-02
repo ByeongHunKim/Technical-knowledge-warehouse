@@ -8,7 +8,7 @@
 
 * `아래 첫번째 쉘 watch -n 1 kubectl get all`
 * `두번째 쉘 위에 모니터링을 보면서 새로운 파드가 뜨거나 하면 kubectl 명령어로 리소스의 로그를 보거나 파드에 접속하는 등 액션을 취하면서 업무를 진행한다`
-* ![](../.gitbook/assets/image.png)
+* ![](<../.gitbook/assets/image (7).png>)
 
 
 
