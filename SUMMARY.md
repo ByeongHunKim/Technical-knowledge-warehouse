@@ -7,7 +7,7 @@
   * [29일](2024/3/3-29.md)
 * [4월](2024/4/README.md)
   * [업무 일지](2024/4/undefined.md)
-  * [업무 기록](2024/4/undefined-1/README.md)
+  * [업무 기록](2024/4/undefined-1/README.md)
     * [Grafana 대시보드, Alert 환경 구성](2024/4/undefined-1/grafana-alert.md)
   * [1일](2024/4/1.md)
   * [2일](2024/4/2.md)
