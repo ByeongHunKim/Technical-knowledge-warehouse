@@ -26,7 +26,8 @@
 
 ## Tips
 
-* [Kubernetes](tips/kubernetes.md)
+* [Kubernetes](tips/kubernetes/README.md)
+  * [k8s reference](https://kubetm.github.io/k8s/)
 
 ## ideas
 
