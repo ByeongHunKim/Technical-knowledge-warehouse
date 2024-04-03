@@ -33,3 +33,4 @@
 
 * [Notifications to slack channels](ideas/notifications-to-slack-channels/README.md)
   * [botkube](ideas/notifications-to-slack-channels/botkube.md)
+* [Terraform](ideas/terraform.md)
