@@ -1,20 +1,20 @@
-# The DevOps Camino of Akaps
+<p align="center">
+    <h1 align="center">
+        Technical-knowledge-warehouse
+    </h1>
+    <p align="center">History of DevOps Camino</p>
+</p>
 
-[Gitbook-link](https://akaps.gitbook.io/devops-camino/)
+## page link list
 
-***
+|               | Gitbook                                 | 
+|---------------|-----------------------------------------| 
+| Homepage      | [link](https://akaps.gitbook.io/devops) |
+| Daily History | [link](https://akaps.gitbook.io/devops/2024/3)   | 
+| Gitlab        | [link](https://akaps.gitbook.io/devops/gitlab/ci-cd-notifications) |
+| Kubernetes    | [link](https://akaps.gitbook.io/devops/kubernetes/ingress) |
+| Loki          | [link](https://akaps.gitbook.io/devops/loki/loki-grafana-alert) |
+| Tips          | [link](https://akaps.gitbook.io/devops/tips/kubernetes) |
+| Ideas         | [link](https://akaps.gitbook.io/devops/ideas/notifications-to-slack-channels) |
 
-{% hint style="info" %}
-**as-is**
-
-* notion에 일일 기록을 작성했다
-* 환경이 바뀌면 노션페이지도 바뀌어서 관리해야하는 부분이 늘어난다
-{% endhint %}
-
-***
-
-{% hint style="info" %}
-**to-be**
-
-* gitbook을 사용해서 관리한다
-{% endhint %}
+---
