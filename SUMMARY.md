@@ -28,11 +28,12 @@
 
 * [loki-grafana alert 세팅](loki/loki-grafana-alert/README.md)
   * [1차 검증 결과](loki/loki-grafana-alert/1.md)
+  * [Alert 환경 구성 가이드](loki/loki-grafana-alert/alert.md)
 
 ## Tips
 
 * [Kubernetes](tips/kubernetes/README.md)
-  * [k8s reference 1 ](https://kubetm.github.io/k8s/)
+  * [k8s reference 1](https://kubetm.github.io/k8s/)
   * [k8s reference 2](https://gasidaseo.notion.site/EKS-Workshop-6b3e478f112a40c3a46fcf67daca9063)
 
 ## ideas
