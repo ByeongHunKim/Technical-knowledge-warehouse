@@ -24,6 +24,11 @@
   * [수동으로 ingress 배포하기](kubernetes/ingress/ingress-1.md)
 * [Security](kubernetes/security.md)
 
+## Loki
+
+* [loki-grafana alert 세팅](loki/loki-grafana-alert/README.md)
+  * [1차 검증 결과](loki/loki-grafana-alert/1.md)
+
 ## Tips
 
 * [Kubernetes](tips/kubernetes/README.md)
