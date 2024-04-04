@@ -39,7 +39,7 @@
 
 <figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption><p>New alert rule</p></figcaption></figure>
 
-### 2.1 query setting
+### 2.1 query setting ( 보완 필요 )
 
 * A, B 모두 세팅 해야한다
 * explorer에서 조회할 때 처럼 하면 에러가 난다
@@ -64,7 +64,7 @@
 
 ### 2.4 add custom labels
 
-* 이후에 설정할 notification policy에서 custom label 값인 project에 따라 contact point가 달라지게 설정할 것 이
+* 이후에 설정할 notification policy에서 custom label 값인 project에 따라 contact point가 달라지게 설정할 것&#x20;
 * 기본적으로는 `severity:warning 을 설정해야 알림이 가는 것 같다`
 
 
