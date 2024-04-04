@@ -19,7 +19,7 @@
 
 ***
 
-### 4월 2일
+### 4월 2일 화요일
 
 한일
 
@@ -42,7 +42,7 @@
 
 ***
 
-### 4월 3일
+### 4월 3일 수요일
 
 한일
 
@@ -66,3 +66,25 @@
 * Grafana 대시보드, Alert 환경 구성 - 로그 패턴 조회 및 Alert 생성
   * alert test 진행은 잘 되어서 point-api의 logging tracing 시도를 해봤는데 firing 에러가 발생해서 원인 파악 중
     * Failed to load the data source configuration for [Loki](https://logging.dev.memecore.org/datasources/edit/P8E80F9AEF21F6940): Unable to fetch alert rules. Is the Loki data source properly configured?
+
+***
+
+### 4월 3일 목요일
+
+한일
+
+* 마일스톤 2 업무
+  * Grafana 대시보드, Alert 환경 구성 - 로그 패턴 조회 및 Alert 생성
+    * 어제 이슈 트러블 슈팅하여 알림이 계속 오고 있는 상황
+
+할일
+
+* 마일스톤 2 업무
+  * Grafana 대시보드, Alert 환경 구성 - 로그 패턴 조회 및 Alert 생성
+    * notification policy 수정하여 그룹화 하도록 테스트
+    * 메시지 바꿀 수 있는 지 등 추가 학습
+
+이슈 및 문의사항
+
+* 4월 10일, 11일 휴가&#x20;
+
