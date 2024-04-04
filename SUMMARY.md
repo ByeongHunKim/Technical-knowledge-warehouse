@@ -27,7 +27,8 @@
 ## Tips
 
 * [Kubernetes](tips/kubernetes/README.md)
-  * [k8s reference](https://kubetm.github.io/k8s/)
+  * [k8s reference 1 ](https://kubetm.github.io/k8s/)
+  * [k8s reference 2](https://gasidaseo.notion.site/EKS-Workshop-6b3e478f112a40c3a46fcf67daca9063)
 
 ## ideas
 
