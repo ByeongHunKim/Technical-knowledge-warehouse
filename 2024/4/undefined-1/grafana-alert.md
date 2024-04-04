@@ -46,7 +46,7 @@ description: 마일스톤2
   * [https://api.slack.com/apps](https://api.slack.com/apps)
   *
 
-      <figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Add New Webhook to Workspace로 다른 채널 추가</p></figcaption></figure>
+      <figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Add New Webhook to Workspace로 다른 채널 추가</p></figcaption></figure>
 
 ***
 
@@ -62,7 +62,7 @@ description: 마일스톤2
 
 * `new contact point`
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>contact-point 설정 예시</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>contact-point 설정 예시</p></figcaption></figure>
 
 * `name`
   * 해당 check point가 추후에 list 형태로 표기되는 명칭 ( 사용자 임의 지정 값 )
@@ -75,9 +75,9 @@ description: 마일스톤2
 * alert test
   *
 
-      <figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
-      <figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -89,7 +89,7 @@ alert 계정 설정이 마무리 되었다면, 이제 어떤 alert 알림을 받
 * 폴더에서 새로운 패널 생성
   *
 
-      <figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption><p>패널 설정</p></figcaption></figure>
+      <figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption><p>패널 설정</p></figcaption></figure>
 
 
   * ERROR가 한번이라도 카운트 되는 조건 추가

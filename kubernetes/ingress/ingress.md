@@ -7,7 +7,7 @@
 
 
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>모든 트래픽을 하나의 서비스로 보내는 예시</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>모든 트래픽을 하나의 서비스로 보내는 예시</p></figcaption></figure>
 
 
 
