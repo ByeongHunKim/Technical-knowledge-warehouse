@@ -186,3 +186,32 @@
 이슈 및 문의사항
 
 * 없음
+
+***
+
+### 4월 17일 수요일
+
+한일
+
+* 시간대 별 alert 구성 및 검증 테스트
+* 프로젝트 팀 지원
+  * x-exporter, telegram-exporter 배포 지원
+    * secret, IRSA 설정
+  * lazyants-telegrambot 배포 지원
+    * secret 생성
+
+할일
+
+* 시간대 별 alert 구성 및 검증 테스트 마무리
+* 리소스 모니터링 문서화
+* 프로젝트 팀 지원
+  * x-exporter, telegram-exporter 배포 지원&#x20;
+    * 특정 ip에서만 요청 보낼 수 있는 istio ingress 설정
+  * lazyants-telegrambot 배포 지원
+    * secret db url ( point-api dev )
+    * IRSA 설정
+    * production 배포 설정 ( values )
+
+이슈 및 문의사항
+
+* 없음
