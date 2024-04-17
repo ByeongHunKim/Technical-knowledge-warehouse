@@ -25,10 +25,18 @@
 
 ## Kubernetes
 
+* [Persistence Volume](kubernetes/persistence-volume/README.md)
+  * [play-cluster](kubernetes/persistence-volume/play-cluster.md)
 * [Ingress](kubernetes/ingress/README.md)
   * [Ingress란](kubernetes/ingress/ingress.md)
   * [수동으로 ingress 배포하기](kubernetes/ingress/ingress-1.md)
 * [Security](kubernetes/security.md)
+
+## prometheus
+
+* [prometheus 리소스 alert 세팅](prometheus/prometheus-alert/README.md)
+  * [슬랙 채널 구성](prometheus/prometheus-alert/undefined.md)
+  * [alert 환경 구성 가이드](prometheus/prometheus-alert/alert.md)
 
 ## Loki
 
