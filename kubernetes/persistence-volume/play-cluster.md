@@ -98,3 +98,11 @@ helm upgrade grafana grafana/grafana --namespace common-metric -f values.yaml
 * 만약 다른 value 값을 수정해서 재배포할 거면 아래 링크 참조
 
 {% embed url="https://github.com/grafana/helm-charts/blob/grafana-7.3.7/charts/grafana/values.yaml" %}
+
+***
+
+### reference
+
+{% embed url="https://kimjingo.tistory.com/129" %}
+
+{% embed url="https://tech.ktcloud.com/82" %}
