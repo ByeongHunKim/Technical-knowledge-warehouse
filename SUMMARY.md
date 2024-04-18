@@ -22,6 +22,8 @@
 
 ## Gitlab
 
+* [Tips](gitlab/tips/README.md)
+  * [사전 정의된 CI/CD 변수의 기본 세트](https://docs.gitlab.com/ee/ci/variables/predefined\_variables.html)
 * [Auto DevOps](gitlab/auto-devops.md)
 * [CI/CD Notifications](gitlab/ci-cd-notifications.md)
 
