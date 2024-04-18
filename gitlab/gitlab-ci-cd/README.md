@@ -16,3 +16,9 @@
 ### GitLab CI 속도 향상 <a href="#gitlab-ci" id="gitlab-ci"></a>
 
 GitLab CI 파이프라인에서 **Cache**를 사용하면 속도를 향상시킬 수 있습니다.
+
+
+
+***
+
+{% embed url="https://gitlab-docs.infograb.net/ee/ci/" %}

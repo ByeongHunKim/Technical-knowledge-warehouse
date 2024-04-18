@@ -24,7 +24,13 @@
 
 * [Tips](gitlab/tips/README.md)
   * [사전 정의된 CI/CD 변수의 기본 세트](https://docs.gitlab.com/ee/ci/variables/predefined\_variables.html)
-* [딥다이브 Gitlab CI/CD](gitlab/gitlab-ci-cd.md)
+* [딥다이브 Gitlab CI/CD](gitlab/gitlab-ci-cd/README.md)
+  * [GitLab CI/CD 시작하기](gitlab/gitlab-ci-cd/gitlab-ci-cd/README.md)
+    * [.gitlab-ci.yml 파일](gitlab/gitlab-ci-cd/gitlab-ci-cd/.gitlab-ci.yml.md)
+    * [Runner](gitlab/gitlab-ci-cd/gitlab-ci-cd/runner.md)
+    * [파이프라인](gitlab/gitlab-ci-cd/gitlab-ci-cd/undefined.md)
+    * [CI/CD 변수](gitlab/gitlab-ci-cd/gitlab-ci-cd/ci-cd.md)
+    * [CI/CD 컴포넌트](gitlab/gitlab-ci-cd/gitlab-ci-cd/ci-cd-1.md)
 * [CI/CD Notifications](gitlab/ci-cd-notifications.md)
 
 ## Kubernetes
