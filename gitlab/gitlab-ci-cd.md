@@ -10,3 +10,9 @@
 
 * 러너가 실행해야 하는 작업(Job)의 구조와 순서
 * 특정 조건이 발생할 때 러너가 내려야 하는 결정
+
+
+
+### GitLab CI 속도 향상 <a href="#gitlab-ci" id="gitlab-ci"></a>
+
+GitLab CI 파이프라인에서 **Cache**를 사용하면 속도를 향상시킬 수 있습니다.
