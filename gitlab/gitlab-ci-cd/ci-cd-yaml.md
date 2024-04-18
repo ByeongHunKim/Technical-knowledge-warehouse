@@ -673,4 +673,375 @@ job2:
 
 * 파이프라인에 [`needs: []`](https://gitlab-docs.infograb.net/ee/ci/yaml/#needs) 작업 및 `.pre` 단계 작업이 포함되어 있는 경우, 파이프라인이 생성되자마자 모든 작업이 시작됩니다. `needs: []`로 시작하는 작업은 단계 구성을 무시하고 즉시 시작됩니다.
 
+
+
+***
+
+* 보다 동적인 작업 제어를 위해 [`rules`](https://gitlab-docs.infograb.net/ee/ci/yaml/#rules)과 함께 `when`을 사용할 수 있습니다.
+* 파이프라인 시작 시기를 조절하기 위해 [`workflow`](https://gitlab-docs.infograb.net/ee/ci/yaml/#workflow)와 함께 `when`을 사용할 수 있습니다.
+
+**관련 주제**:
+
+* [GitLab 13.5 및 이후](https://gitlab.com/gitlab-org/gitlab/-/issues/201938)에는 `when:manual`을 [`trigger`](https://gitlab-docs.infograb.net/ee/ci/yaml/#trigger)와 함께 동일한 작업에서 사용할 수 있습니다. GitLab 13.4 및 이전 버전에서는 함께 사용하면 `jobs:#{job-name} when should be on_success, on_failure or always`에러가 발생합니다.
+* `when: manual`의 기본 동작은 `allow_failure`가 `true`로 변경됩니다. 그러나 `when: manual`을 [`rules`](https://gitlab-docs.infograb.net/ee/ci/yaml/#rules)과 함께 사용하면 `allow_failure`가 기본적으로 `false`로 설정됩니다.
+
+**추가 정보**:
+
+1. `build_job`이 실패할 때만 `cleanup_build_job`을 실행합니다.
+2. 어떤 경우에도 `cleanup_job`을 파이프라인의 마지막 단계로 실행합니다.
+3. GitLab UI에서 수동으로 실행할 때 `deploy_job`을 실행합니다.
+
+이 예시에서 스크립트는 다음을 실행합니다:
+
+```
+stages:
+  - build
+  - cleanup_build
+  - test
+  - deploy
+  - cleanup
+
+build_job:
+  stage: build
+  script:
+    - make build
+
+cleanup_build_job:
+  stage: cleanup_build
+  script:
+    - cleanup build when failed
+  when: on_failure
+
+test_job:
+  stage: test
+  script:
+    - make test
+
+deploy_job:
+  stage: deploy
+  script:
+    - make deploy
+  when: manual
+  environment: production
+
+cleanup_job:
+  stage: cleanup
+  script:
+    - cleanup after jobs
+  when: always
+```
+
+**`when` 예시**:
+
+* `on_success` (기본값): 이전 단계의 작업 중 실패한 작업이 없을 때 또는 `allow_failure: true`가 있는 경우에만 작업을 실행합니다.
+* `on_failure`: 이전 단계에서 적어도 한 작업이 실패할 때 작업을 실행합니다. 이전 단계의 `allow_failure: true`가 있는 작업은 항상 성공으로 간주됩니다.
+* `never`: 이전 단계의 상태에 관계없이 작업을 실행하지 않습니다. `rules` 섹션 또는 `workflow:rules`에서만 사용할 수 있습니다.
+* `always`: 이전 단계의 상태에 관계없이 작업을 실행합니다. `workflow:rules`에서도 사용할 수 있습니다.
+* `manual`: [수동으로 트리거된 경우에만](https://gitlab-docs.infograb.net/ee/ci/jobs/job\_control.html#create-a-job-that-must-be-run-manually) 작업을 실행합니다.
+* `delayed`: 지정된 기간 동안 [작업의 실행을 지연](https://gitlab-docs.infograb.net/ee/ci/jobs/job\_control.html#run-a-job-after-a-delay)시킵니다.
+
+**가능한 입력**:
+
+**키워드 유형**: 작업 키워드. 작업의 일부로 사용할 수 있습니다. [`workflow:rules`](https://gitlab-docs.infograb.net/ee/ci/yaml/#workflow)에서도 `when: always` 및 `when: never`를 사용할 수 있습니다.
+
+작업이 실행되는 조건을 구성하기 위해 `when`을 사용합니다. 작업 내에서 정의되지 않은 경우 기본값은 `when: on_success`입니다.
+
+#### `when`
+
+***
+
+* `확장` 키워드는 전역 및 작업 수준 `variables` 키워드와 함께 사용할 수 있습니다. [`rules:variables`](https://gitlab-docs.infograb.net/ee/ci/yaml/#rulesvariables) 또는 [`workflow:rules:variables`](https://gitlab-docs.infograb.net/ee/ci/yaml/#workflowrulesvariables)와 함께 사용할 수 없습니다.
+
+**추가 정보**:
+
+* `VAR2`의 결과는 `value2 value1`입니다.
+* `VAR3`의 결과는 `value3 $VAR1`입니다.
+
+```
+variables:
+  VAR1: value1
+  VAR2: value2 $VAR1
+  VAR3:
+    value: value3 $VAR1
+    expand: false
+```
+
+**`변수:확장` 예시**:
+
+* `true` (기본값): 변수는 확장 가능합니다.
+* `false`: 변수는 확장할 수 없습니다.
+
+**가능한 입력**:
+
+**키워드 유형**: 글로벌 및 작업 키워드. 전역 수준과 작업 수준에서 사용할 수 있습니다.
+
+`expand` 키워드를 사용하여 변수를 확장 가능하게 또는 그렇지 않게 구성합니다.
+
+* [GitLab 15.6에 도입](https://gitlab.com/gitlab-org/gitlab/-/issues/353991)되었으며 기본으로 비활성화된 `ci_raw_variables_in_yaml_config`라는 플래그와 함께.
+* [GitLab 15.6에서 GitLab.com에서 활성화](https://gitlab.com/gitlab-org/gitlab/-/issues/375034)됨.
+* [GitLab 15.7에서 Self-managed에서 활성화](https://gitlab.com/gitlab-org/gitlab/-/issues/375034)됨.
+* [GitLab 15.8에서 General Availability](https://gitlab.com/gitlab-org/gitlab/-/issues/375034)됨. 기능 플래그 `ci_raw_variables_in_yaml_config` 삭제.
+
+**`변수:확장`**
+
+```
+variables:
+  DEPLOY_ENVIRONMENT:
+    value: "staging"
+    options:
+      - "production"
+      - "staging"
+      - "canary"
+    description: "The deployment target. Set to 'staging' by default."
+```
+
+`variables:options`의 **예시**:
+
+* 문자열 배열.
+
+**가능한 입력**:
+
+**키워드 유형**: 글로벌 키워드. 작업 수준 변수에는 사용할 수 없습니다.
+
+[`description`](https://gitlab-docs.infograb.net/ee/ci/yaml/#variablesdescription)이 없는 경우 이 키워드는 효력이 없습니다.
+
+* `options` 배열의 문자열 중 하나여야 합니다.
+* 기본 선택 사항입니다.
+
+`variables:value`와 함께 사용해야 하며, `value`에 정의된 문자열은 다음을 만족해야 합니다:
+
+`variables:options`를 사용하여 [수동으로 파이프라인을 실행할 때 UI에서 선택 가능한 값 목록을 구성](https://gitlab-docs.infograb.net/ee/ci/pipelines/index.html#configure-a-list-of-selectable-prefilled-variable-values)합니다.
+
+> * [GitLab 15.7](https://gitlab.com/gitlab-org/gitlab/-/merge\_requests/105502)에서 도입되었습니다.
+
+**`variables:options`**
+
+* [`variables: description`](https://gitlab-docs.infograb.net/ee/ci/yaml/#variablesdescription) 없이 사용할 경우 동작은 [`variables`](https://gitlab-docs.infograb.net/ee/ci/yaml/#variables)와 동일합니다.
+
+**추가 세부정보**:
+
+```
+variables:
+  DEPLOY_ENVIRONMENT:
+    value: "staging"
+    description: "The deployment target. Change this variable to 'canary' or 'production' if needed."
+```
+
+`variables:value`의 **예시**:
+
+* 문자열.
+
+**가능한 입력**:
+
+**키워드 유형**: 글로벌 키워드. 작업 수준 변수에는 사용할 수 없습니다.
+
+`value` 키워드를 사용하여 파이프라인 수준(글로벌) 변수의 값을 정의합니다. [`variables: description`](https://gitlab-docs.infograb.net/ee/ci/yaml/#variablesdescription)과 함께 사용하면 [파이프라인을 수동으로 실행할 때 변수 값이 미리 채워짐](https://gitlab-docs.infograb.net/ee/ci/pipelines/index.html#prefill-variables-in-manual-pipelines)니다.
+
+> * [GitLab 13.7](https://gitlab.com/gitlab-org/gitlab/-/issues/30101)에서 도입되었습니다.
+
+**`variables:value`**
+
+* `value` 없이 사용하면 수동으로 트리거되지 않은 파이프라인에 해당 변수가 존재하며, 기본값은 빈 문자열(`''`)입니다.
+
+**추가 세부정보**:
+
+```
+variables:
+  DEPLOY_NOTE:
+    description: "The deployment note. Explain the reason for this deployment."
+```
+
+`variables:description`의 **예시**:
+
+* 문자열.
+
+**가능한 입력**:
+
+**키워드 유형**: 글로벌 키워드. 작업 수준 변수에는 사용할 수 없습니다.
+
+`description` 키워드를 사용하여 파이프라인 수준(글로벌) 변수에 대한 설명을 정의합니다. [수동으로 파이프라인을 실행할 때 미리 채워진 변수 이름과 함께 표시](https://gitlab-docs.infograb.net/ee/ci/pipelines/index.html#prefill-variables-in-manual-pipelines)됩니다.
+
+> * [GitLab 13.7](https://gitlab.com/gitlab-org/gitlab/-/issues/30101)에서 도입되었습니다.
+
+**`variables:description`**
+
+* [사전 정의된 변수](https://gitlab-docs.infograb.net/ee/ci/variables/predefined\_variables.html)는 실행 중에 러너가 자동으로 생성하고 작업에서 사용할 수 있는 변수입니다.
+* [변수를 사용하여 러너 동작 구성](https://gitlab-docs.infograb.net/ee/ci/runners/configure\_runners.html#configure-runner-behavior-with-variables)할 수 있습니다.
+
+**관련 주제**:
+
+* 모든 YAML로 정의된 변수는 연결된 [Docker 서비스 컨테이너](https://gitlab-docs.infograb.net/ee/ci/services/index.html)에도 설정됩니다.
+* YAML로 정의된 변수는 민감한 프로젝트 구성을 위한 것입니다. 민감한 정보는 [protected variables](https://gitlab-docs.infograb.net/ee/ci/variables/index.html#protect-a-cicd-variable)나 [CI/CD secrets](https://gitlab-docs.infograb.net/ee/ci/secrets/index.html)에 저장하세요.
+* [수동 파이프라인 변수](https://gitlab-docs.infograb.net/ee/ci/variables/index.html#override-a-defined-cicd-variable) 및 [예약된 파이프라인 변수](https://gitlab-docs.infograb.net/ee/ci/pipelines/schedules.html#add-a-pipeline-schedule)는 기본적으로 하류 파이프라인으로 전달되지 않습니다. 이러한 변수를 하류 파이프라인으로 전달하려면 [trigger:forward](https://gitlab-docs.infograb.net/ee/ci/yaml/#triggerforward)를 사용하세요.
+
+**추가 세부정보**:
+
+```
+variables:
+  DEPLOY_SITE: "https://example.com/"
+
+deploy_job:
+  stage: deploy
+  script:
+    - deploy-script --url $DEPLOY_SITE --path "/"
+  environment: production
+
+deploy_review_job:
+  stage: deploy
+  variables:
+    REVIEW_PATH: "/review"
+  script:
+    - deploy-review-script --url $DEPLOY_SITE --path $REVIEW_PATH
+  environment: production
+```
+
+`variables`의 **예시**:
+
+CI/CD 변수 [지원됨](https://gitlab-docs.infograb.net/ee/ci/variables/where\_variables\_can\_be\_used.html#gitlab-ciyml-file).
+
+* 이름은 숫자, 문자 및 밑줄(`_`)만 사용할 수 있습니다. 일부 셸에서는 첫 번째 문자가 문자여야 합니다.
+* 값은 문자열이어야 합니다.
+
+**가능한 입력**: 변수 이름 및 값 쌍:
+
+글로벌 수준에서 정의된 변수는 [`include`](https://gitlab-docs.infograb.net/ee/ci/yaml/includes.html#use-variables-with-include)와 같은 기타 글로벌 키워드의 입력으로 사용할 수 없습니다. 이러한 변수는 `script`, `before_script`, `after_script` 섹션에서 작업 수준 및 [`rules`](https://gitlab-docs.infograb.net/ee/ci/jobs/job\_control.html#cicd-variable-expressions)과 같은 일부 작업 키워드의 입력에만 사용할 수 있습니다.
+
+`variables`를 [글로벌 키워드로](https://gitlab-docs.infograb.net/ee/ci/yaml/#keywords) 정의하면 모든 작업에 대한 기본 변수로 작동합니다. 각 변수는 파이프라인이 생성될 때 모든 작업 구성으로 복사됩니다. 작업에 이미 해당 변수가 정의된 경우 [작업 수준 변수가 우선](https://gitlab-docs.infograb.net/ee/ci/variables/index.html#cicd-variable-precedence)합니다.
+
+**키워드 유형**: 글로벌 및 작업 키워드. 글로벌 수준과 작업 수준에서 사용할 수 있습니다.
+
+[CI/CD 변수](https://gitlab-docs.infograb.net/ee/ci/variables/index.html#define-a-cicd-variable-in-the-gitlab-ciyml-file)를 작업에 정의하는 데 `variables`를 사용합니다.
+
+#### `variables`
+
+* `trigger:forward`로 다운스트림 파이프라인에 전달된 CI/CD 변수는 [가장 높은 우선순위](https://gitlab-docs.infograb.net/ee/ci/variables/index.html#cicd-variable-precedence)를 가집니다. 동일한 이름의 변수가 다운스트림 파이프라인에서 정의된 경우 해당 변수는 전달된 변수에 덮어쓰입니다.
+
+**추가 세부 정보**:
+
+```
+variables: # 각 작업에 대한 기본 변수
+  VAR: value
+
+# 기본 동작:
+# - VAR이 자식에게 전달됨
+# - MYVAR는 자식에게 전달되지 않음
+child1:
+  trigger:
+    include: .child-pipeline.yml
+
+# 파이프라인 변수 전달:
+# - VAR이 자식에게 전달됨
+# - MYVAR는 자식에게 전달됨
+child2:
+  trigger:
+    include: .child-pipeline.yml
+    forward:
+      pipeline_variables: true
+
+# YAML 변수를 전달하지 않음:
+# - VAR가 자식에게 전달되지 않음
+# - MYVAR가 자식에게 전달되지 않음
+child3:
+  trigger:
+    include: .child-pipeline.yml
+    forward:
+      yaml_variables: false
+```
+
+CI/CD 변수 `MYVAR = my value`로 [이 파이프라인을 수동으로 실행](https://gitlab-docs.infograb.net/ee/ci/pipelines/index.html#run-a-pipeline-manually):
+
+**`trigger:forward`의 예시**:
+
+* `yaml_variables`: `true` (기본값) 또는 `false`. `true`인 경우, 트리거 작업에 정의된 변수가 다운스트림 파이프라인에 전달됩니다.
+* `pipeline_variables`: `true` 또는 `false` (기본값). `true`인 경우, [수동 파이프라인 변수](https://gitlab-docs.infograb.net/ee/ci/variables/index.html#override-a-defined-cicd-variable) 및 [일정에 따른 파이프라인 변수](https://gitlab-docs.infograb.net/ee/ci/pipelines/schedules.html#add-a-pipeline-schedule) 이 다운스트림 파이프라인에 전달됩니다.
+
+**가능한 입력값**:
+
+`trigger:forward`를 사용하여 하위 파이프라인과 다중 프로젝트 파이프라인으로 전달할 항목을 지정할 수 있습니다. `trigger:forward`로 [부모-자식 파이프라인](https://gitlab-docs.infograb.net/ee/ci/pipelines/downstream\_pipelines.html#parent-child-pipelines) 및 [다중 프로젝트 파이프라인](https://gitlab-docs.infograb.net/ee/ci/pipelines/downstream\_pipelines.html#multi-project-pipelines)으로 전달되는 항목을 제어할 수 있습니다.
+
+**`trigger:forward`**
+
+* 다운스트림 파이프라인의 [옵션 수동 작업](https://gitlab-docs.infograb.net/ee/ci/jobs/job\_control.html#types-of-manual-jobs)은 다운스트림 파이프라인 또는 상위 트리거 작업의 상태에 영향을 미치지 않습니다. 선택적인 수동 작업 없이도 다운스트림 파이프라인은 성공적으로 완료될 수 있습니다.
+* 다운스트림 파이프라인의 [차단 수동 작업](https://gitlab-docs.infograb.net/ee/ci/jobs/job\_control.html#types-of-manual-jobs)이 수동 작업으로 인해 대기 상태인 경우, 트리거 작업이 대기 상태임 ()을 나타내며, 기본적으로 나중 단계의 작업들은 트리거 작업이 완료될 때까지 시작하지 않습니다.
+* 만약 다운스트림 파이프라인에 실패한 작업이 있지만 작업이 [`allow_failure: true`](https://gitlab-docs.infograb.net/ee/ci/yaml/#allow\_failure)을 사용한 경우, 다운스트림 파이프라인은 성공적으로 간주되며, 트리거 작업은 **성공**으로 나타납니다.
+
+**추가 세부 정보**:
+
+이 예시에서, 다음 스테이지의 작업들은 트리거된 파이프라인이 성공적으로 완료될 때까지 기다립니다.
+
+```
+trigger_job:
+  trigger:
+    include: path/to/child-pipeline.yml
+    strategy: depend
+```
+
+**`trigger:strategy`의 예시**:
+
+이 설정은 파이프라인 실행을 병렬이 아닌 선형으로 만듭니다.
+
+기본 동작과 다른 점은 `trigger` 작업이 완료되자마자 **성공**으로 표시되는 것이 아니라는 것입니다.
+
+`trigger:strategy`를 사용하여 `trigger` 작업이 다운스트림 파이프라인이 완료될 때까지 **성공**으로 표시되기 전까지 기다리도록 강제할 수 있습니다.
+
+**`trigger:strategy`**
+
+* [다중 프로젝트 파이프라인 구성 예시](https://gitlab-docs.infograb.net/ee/ci/pipelines/downstream\_pipelines.html#trigger-a-downstream-pipeline-from-a-job-in-the-gitlab-ciyml-file).
+* 특정 브랜치, 태그 또는 커밋에 대한 파이프라인 실행을 위해 [트리거 토큰](https://gitlab-docs.infograb.net/ee/ci/triggers/index.html)을 사용할 수도 있으며, [파이프라인 트리거 API](https://gitlab-docs.infograb.net/ee/api/pipeline\_triggers.html)와 인증하기 위해 [트리거 토큰](https://gitlab-docs.infograb.net/ee/ci/triggers/index.html)을 사용합니다. 트리거 토큰은 `trigger` 키워드와는 다릅니다.
+
+**관련 주제**:
+
+```
+trigger-multi-project-pipeline:
+  trigger:
+    project: my-group/my-project
+    branch: development
+```
+
+다른 브랜치용 `trigger:project`의 예시:
+
+```
+trigger-multi-project-pipeline:
+  trigger:
+    project: my-group/my-project
+```
+
+**`trigger:project`의 예시**:
+
+* 하위 프로젝트의 경로. GitLab 15.3부터는 CI/CD 변수가 [지원됩니다](https://gitlab-docs.infograb.net/ee/ci/variables/where\_variables\_can\_be\_used.html#gitlab-ciyml-file), 그러나 [작업 수준의 지속 변수](https://gitlab-docs.infograb.net/ee/ci/variables/where\_variables\_can\_be\_used.html#persisted-variables)는 지원되지 않습니다.
+
+**가능한 입력값**:
+
+**키워드 유형**: 작업 키워드. 작업의 일부로만 사용할 수 있습니다.
+
+기본적으로, 다중 프로젝트 파이프라인은 기본 브랜치를 대상으로 트리거합니다. 다른 브랜치를 지정하려면 `trigger:branch`를 사용하세요.
+
+`trigger:project`를 사용하여 작업이 “트리거 작업”이라고 선언하고, [다중 프로젝트 파이프라인](https://gitlab-docs.infograb.net/ee/ci/pipelines/downstream\_pipelines.html#multi-project-pipelines)을 시작하는 데 사용합니다.
+
+**`trigger:project`**
+
+* [하위 파이프라인 구성 예시](https://gitlab-docs.infograb.net/ee/ci/pipelines/downstream\_pipelines.html#trigger-a-downstream-pipeline-from-a-job-in-the-gitlab-ciyml-file).
+
+**관련 주제**:
+
+```
+trigger-child-pipeline:
+  trigger:
+    include: path/to/child-pipeline.gitlab-ci.yml
+```
+
+**`trigger:include`의 예시**:
+
+* 하위 파이프라인 구성 파일의 경로.
+
+**가능한 입력값**:
+
+**키워드 유형**: 작업 키워드. 작업의 일부로만 사용할 수 있습니다.
+
+`trigger:include:artifact`를 사용하여 [동적 하위 파이프라인](https://gitlab-docs.infograb.net/ee/ci/pipelines/downstream\_pipelines.html#dynamic-child-pipelines)을 트리거합니다.
+
+`trigger:include`를 사용하여 작업이 “트리거 작업”이라고 선언하고, [하위 파이프라인](https://gitlab-docs.infograb.net/ee/ci/pipelines/downstream\_pipelines.html#parent-child-pipelines)을 시작하는 데 사용합니다.
+
+**`trigger:include`**
+
 \
