@@ -247,10 +247,15 @@
 * CI/CD 개선 업무
   * gitlab auto devops 학습 티켓
     * 가벼운 Flask 프로젝트로 Basic Auto DevOps 사용하여 환경 별 배포
+    * gitlab 문서 보며 auto devops 학습
+    * 1차 개선점 도출
+      * staging enabled ( feature 브랜치에서 dev로 merge 시 같은 이미지를 사용하기 때문에 build skip )&#x20;
+      * integration slack alert job 을 custom base gitlab ci에 만들어서 사용 ( gitlab variables에 webhook URL 값을 사용하여 프로젝트별 채널에 알림 가도록 )
 
 할일
 
-*
+* gitlab auto devops 학습 티켓
+  * gitlab 문서 보며 auto devops 학습
 
 이슈 및 문의사항
 
