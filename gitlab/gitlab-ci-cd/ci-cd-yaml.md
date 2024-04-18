@@ -1044,4 +1044,81 @@ trigger-child-pipeline:
 
 **`trigger:include`**
 
+
+
+
+
+***
+
+#### `when`
+
+작업이 실행되는 조건을 구성하기 위해 `when`을 사용합니다. 작업 내에서 정의되지 않은 경우 기본값은 `when: on_success`입니다.
+
+**키워드 유형**: 작업 키워드. 작업의 일부로 사용할 수 있습니다. [`workflow:rules`](https://gitlab-docs.infograb.net/ee/ci/yaml/#workflow)에서도 `when: always` 및 `when: never`를 사용할 수 있습니다.
+
+**가능한 입력**:
+
+* `on_success` (기본값): 이전 단계의 작업 중 실패한 작업이 없을 때 또는 `allow_failure: true`가 있는 경우에만 작업을 실행합니다.
+* `on_failure`: 이전 단계에서 적어도 한 작업이 실패할 때 작업을 실행합니다. 이전 단계의 `allow_failure: true`가 있는 작업은 항상 성공으로 간주됩니다.
+* `never`: 이전 단계의 상태에 관계없이 작업을 실행하지 않습니다. `rules` 섹션 또는 `workflow:rules`에서만 사용할 수 있습니다.
+* `always`: 이전 단계의 상태에 관계없이 작업을 실행합니다. `workflow:rules`에서도 사용할 수 있습니다.
+* `manual`: [수동으로 트리거된 경우에만](https://gitlab-docs.infograb.net/ee/ci/jobs/job\_control.html#create-a-job-that-must-be-run-manually) 작업을 실행합니다.
+* `delayed`: 지정된 기간 동안 [작업의 실행을 지연](https://gitlab-docs.infograb.net/ee/ci/jobs/job\_control.html#run-a-job-after-a-delay)시킵니다.
+
+**`when` 예시**:
+
+```
+stages:
+  - build
+  - cleanup_build
+  - test
+  - deploy
+  - cleanup
+
+build_job:
+  stage: build
+  script:
+    - make build
+
+cleanup_build_job:
+  stage: cleanup_build
+  script:
+    - cleanup build when failed
+  when: on_failure
+
+test_job:
+  stage: test
+  script:
+    - make test
+
+deploy_job:
+  stage: deploy
+  script:
+    - make deploy
+  when: manual
+  environment: production
+
+cleanup_job:
+  stage: cleanup
+  script:
+    - cleanup after jobs
+  when: always
+```
+
+이 예시에서 스크립트는 다음을 실행합니다:
+
+1. `build_job`이 실패할 때만 `cleanup_build_job`을 실행합니다.
+2. 어떤 경우에도 `cleanup_job`을 파이프라인의 마지막 단계로 실행합니다.
+3. GitLab UI에서 수동으로 실행할 때 `deploy_job`을 실행합니다.
+
+**추가 정보**:
+
+* [GitLab 13.5 및 이후](https://gitlab.com/gitlab-org/gitlab/-/issues/201938)에는 `when:manual`을 [`trigger`](https://gitlab-docs.infograb.net/ee/ci/yaml/#trigger)와 함께 동일한 작업에서 사용할 수 있습니다. GitLab 13.4 및 이전 버전에서는 함께 사용하면 `jobs:#{job-name} when should be on_success, on_failure or always`에러가 발생합니다.
+* `when: manual`의 기본 동작은 `allow_failure`가 `true`로 변경됩니다. 그러나 `when: manual`을 [`rules`](https://gitlab-docs.infograb.net/ee/ci/yaml/#rules)과 함께 사용하면 `allow_failure`가 기본적으로 `false`로 설정됩니다.
+
+**관련 주제**:
+
+* 보다 동적인 작업 제어를 위해 [`rules`](https://gitlab-docs.infograb.net/ee/ci/yaml/#rules)과 함께 `when`을 사용할 수 있습니다.
+* 파이프라인 시작 시기를 조절하기 위해 [`workflow`](https://gitlab-docs.infograb.net/ee/ci/yaml/#workflow)와 함께 `when`을 사용할 수 있습니다.
+
 \
