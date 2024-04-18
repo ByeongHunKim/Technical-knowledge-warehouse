@@ -603,3 +603,74 @@ job:
 * 규칙 수준의 `rules:interruptible`은 작업 수준의 [`interruptible`](https://gitlab-docs.infograb.net/ee/ci/yaml/#interruptible)을 재정의하며 특정 규칙이 작업을 트리거할 때만 적용됩니다.
 
 \
+**`stage: .pre`**
+
+> * GitLab 12.4에서 [도입](https://gitlab.com/gitlab-org/gitlab/-/issues/31441).
+
+`.pre` 단계를 사용하여 작업을 파이프라인의 시작에서 실행하도록 설정합니다. `.pre`는 항상 파이프라인의 첫 번째 단계입니다. 사용자 정의 단계는 `.pre` 이후에 실행됩니다. [`stages`](https://gitlab-docs.infograb.net/ee/ci/yaml/#stages)에서 `.pre`을 정의할 필요는 없습니다.
+
+파이프라인에 `.pre` 또는 `.post` 단계의 작업만 포함된 경우 파이프라인이 실행되지 않습니다. 다른 단계에 적어도 한 개의 다른 작업이 있어야 합니다.
+
+**키워드 유형**: 작업의 `stage` 키워드와 함께만 사용할 수 있습니다.
+
+**`stage: .pre` 예시**:
+
+```
+stages:
+  - build
+  - test
+
+job1:
+  stage: build
+  script:
+    - echo "이 작업은 빌드 단계에서 실행됩니다."
+
+first-job:
+  stage: .pre
+  script:
+    - echo ".pre 단계에서 이 작업이 실행됩니다. 다른 모든 단계보다 먼저 실행됩니다."
+
+job2:
+  stage: test
+  script:
+    - echo "이 작업은 테스트 단계에서 실행됩니다."
+```
+
+**`stage: .post`**
+
+> * GitLab 12.4에서 [도입](https://gitlab.com/gitlab-org/gitlab/-/issues/31441).
+
+`.post` 단계를 사용하여 작업을 파이프라인의 끝에서 실행하도록 설정합니다. `.post`는 항상 파이프라인의 마지막 단계입니다. 사용자 정의 단계는 `.post` 이전에 실행됩니다. [`stages`](https://gitlab-docs.infograb.net/ee/ci/yaml/#stages)에서 `.post`을 정의할 필요는 없습니다.
+
+파이프라인에 `.pre` 또는 `.post` 단계의 작업만 포함된 경우 파이프라인이 실행되지 않습니다. 다른 단계에 적어도 한 개의 다른 작업이 있어야 합니다.
+
+**키워드 유형**: 작업의 `stage` 키워드와 함께만 사용할 수 있습니다.
+
+**`stage: .post` 예시**:
+
+```
+stages:
+  - build
+  - test
+
+job1:
+  stage: build
+  script:
+    - echo "이 작업은 빌드 단계에서 실행됩니다."
+
+last-job:
+  stage: .post
+  script:
+    - echo "이 작업은 .post 단계에서 실행됩니다. 다른 모든 단계보다 나중에 실행됩니다."
+
+job2:
+  stage: test
+  script:
+    - echo "이 작업은 테스트 단계에서 실행됩니다."
+```
+
+**추가 세부 정보**:
+
+* 파이프라인에 [`needs: []`](https://gitlab-docs.infograb.net/ee/ci/yaml/#needs) 작업 및 `.pre` 단계 작업이 포함되어 있는 경우, 파이프라인이 생성되자마자 모든 작업이 시작됩니다. `needs: []`로 시작하는 작업은 단계 구성을 무시하고 즉시 시작됩니다.
+
+\
