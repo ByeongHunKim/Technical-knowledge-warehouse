@@ -22,6 +22,7 @@
 
 ## Gitlab
 
+* [Auto DevOps](gitlab/auto-devops.md)
 * [CI/CD Notifications](gitlab/ci-cd-notifications.md)
 
 ## Kubernetes
