@@ -1,3 +1,17 @@
 # CI/CD Notifications
 
-[https://medium.com/@mrdevx/step-by-step-guide-integrating-slack-with-gitlab-ci-for-seamless-ci-cd-notifications-be76a54d3038](https://medium.com/@mrdevx/step-by-step-guide-integrating-slack-with-gitlab-ci-for-seamless-ci-cd-notifications-be76a54d3038)
+{% embed url="https://medium.com/@mrdevx/step-by-step-guide-integrating-slack-with-gitlab-ci-for-seamless-ci-cd-notifications-be76a54d3038" %}
+
+***
+
+## trouble shooting
+
+* start, finalize stage로 구현하려고 했는데, finalize stage에서 전체 파이프라인의 성공여부를 확인할 수 있는 predefined variable이 없고 $CI\_JOB\_STATUS 값이 있어서 해당 stage의 common after script에서 저 값으로 판단하여 deploy ( review, production ) stage에서 최종 성공 여부에 대한 메시지를 전달
+* start에서 이미지를 사용하지 않으면 curl 미설치 에러가 발생
+  * ubuntu:latest 를 사용하고 before\_script에서 curl 설치를 했으나 어쩔땐 이 간략한 stage에서 2분이나 걸림
+  * curl 만 설치된 base image 참조
+* slack webhook url이 없는 상태인 경우 배포 pipeline이 안되는 것을 방지하기 위해서 allow\_failure : true 추가
+* 메시지 간결화
+  * 내가 구상한 integration 채널로 가는 게 아니라 team-prjname-integration 하나로 우선 가자고 하셔서 이에 맞게 메시지를 간결하고 직관적으로 구현
+
+![](../.gitbook/assets/image.png)
