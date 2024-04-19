@@ -11,6 +11,9 @@
   * ubuntu:latest 를 사용하고 before\_script에서 curl 설치를 했으나 어쩔땐 이 간략한 stage에서 2분이나 걸림
   * curl 만 설치된 base image 참조
 * slack webhook url이 없는 상태인 경우 배포 pipeline이 안되는 것을 방지하기 위해서 allow\_failure : true 추가
+  *   &#x20;설정을 하면 에러가 나도 스킵되고 나머지 stage가 진행됨
+
+      <figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
 * 메시지 간결화
   * 내가 구상한 integration 채널로 가는 게 아니라 team-prjname-integration 하나로 우선 가자고 하셔서 이에 맞게 메시지를 간결하고 직관적으로 구현
 
