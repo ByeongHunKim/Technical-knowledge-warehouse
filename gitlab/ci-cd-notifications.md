@@ -17,7 +17,7 @@
 * 메시지 간결화
   * 내가 구상한 integration 채널로 가는 게 아니라 team-prjname-integration 하나로 우선 가자고 하셔서 이에 맞게 메시지를 간결하고 직관적으로 구현
 
-![](../.gitbook/assets/image.png)
+![](<../.gitbook/assets/image (4).png>)
 
 
 
@@ -25,6 +25,21 @@
 
 ## 추가 개선 사항
 
+* 성공했을 때는 프로젝트  url, 실패했을 때는 실패한 Job url을 보여주도록 개선
+  * deploy를 실패시키기 위해 livenessprobe를 /로 잡아놨는데 api endpoint를 바꿈
+  *
+
+      <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+  * ![](../.gitbook/assets/image.png)
+    * Liveness probe failed: HTTP probe failed with statuscode: 404
+  *   너무 길어서 retry 설정이 필요해보임
+
+      <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+
+  *   메시지 failed 확인 및 링크 누를 시 실패한 review stage로 이동 확인
+
+      <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 * common before script로 loki url 프로젝트 배포 환경에 맞게 전달해서 로그를 바로 볼 수 있게 개선
 * staging deploy를 돌려보면서 적용할 수 있는 지 확인
   * 목표는 feature 브랜치에서 development로 merge된 경우 build stage를 생략하고 바로 deploy가 진행
