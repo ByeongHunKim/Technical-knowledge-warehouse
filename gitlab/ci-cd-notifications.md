@@ -29,18 +29,26 @@
   * deploy를 실패시키기 위해 livenessprobe를 /로 잡아놨는데 api endpoint를 바꿈
   *
 
-      <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
-  * ![](../.gitbook/assets/image.png)
+      <figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+  * ![](<../.gitbook/assets/image (2).png>)
     * Liveness probe failed: HTTP probe failed with statuscode: 404
-  *   너무 길어서 retry 설정이 필요해보임
-
-      <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
-
-
   * 메시지 failed 확인 및 링크 누를 시 실패한 review stage로 이동 확인
     *   추후에 여기에 스레드에서 데브옵스 호출 하는 식으로
 
         <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+    *   성공했을 때는 프로젝트 url
+
+        <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    *   실패했을 때는 실패한 job link
+
+        <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+*   너무 길어서 retry 설정이 필요해보임
+
+    <figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+
+
+
+    * retry: max: 2 when: - always # 모든 종류의 실패에 대해 재시도 추가
 * common before script로 loki url 프로젝트 배포 환경에 맞게 전달해서 로그를 바로 볼 수 있게 개선
 * staging deploy를 돌려보면서 적용할 수 있는 지 확인
   * 목표는 feature 브랜치에서 development로 merge된 경우 build stage를 생략하고 바로 deploy가 진행

@@ -46,7 +46,7 @@ description: 마일스톤2
   * [https://api.slack.com/apps](https://api.slack.com/apps)
   *
 
-      <figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p>Add New Webhook to Workspace로 다른 채널 추가</p></figcaption></figure>
+      <figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption><p>Add New Webhook to Workspace로 다른 채널 추가</p></figcaption></figure>
 
 ***
 

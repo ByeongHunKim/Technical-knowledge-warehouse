@@ -81,9 +81,9 @@ contact point를 생성하기 전에 slack 알림을 받을 채널을 먼저 생
 
 ### 3.2 contact point setting
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>New contact point</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>New contact point</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * name
   * 현재는 `prj-contact-point` 로 정했다
