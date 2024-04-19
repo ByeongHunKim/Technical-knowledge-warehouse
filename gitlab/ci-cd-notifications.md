@@ -18,3 +18,14 @@
   * 내가 구상한 integration 채널로 가는 게 아니라 team-prjname-integration 하나로 우선 가자고 하셔서 이에 맞게 메시지를 간결하고 직관적으로 구현
 
 ![](../.gitbook/assets/image.png)
+
+
+
+***
+
+## 추가 개선 사항
+
+* common before script로 loki url 프로젝트 배포 환경에 맞게 전달해서 로그를 바로 볼 수 있게 개선
+* staging deploy를 돌려보면서 적용할 수 있는 지 확인
+  * 목표는 feature 브랜치에서 development로 merge된 경우 build stage를 생략하고 바로 deploy가 진행
+  * 현재는 production ( main ) 브랜치만 production stage고 나머지는 모두 review stage 임
