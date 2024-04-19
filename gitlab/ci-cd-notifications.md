@@ -37,9 +37,10 @@
       <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 
-  *   메시지 failed 확인 및 링크 누를 시 실패한 review stage로 이동 확인
+  * 메시지 failed 확인 및 링크 누를 시 실패한 review stage로 이동 확인
+    *   추후에 여기에 스레드에서 데브옵스 호출 하는 식으로
 
-      <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 * common before script로 loki url 프로젝트 배포 환경에 맞게 전달해서 로그를 바로 볼 수 있게 개선
 * staging deploy를 돌려보면서 적용할 수 있는 지 확인
   * 목표는 feature 브랜치에서 development로 merge된 경우 build stage를 생략하고 바로 deploy가 진행
