@@ -43,6 +43,9 @@
     *   실패했을 때는 실패한 job link
 
         <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+
+    * 실패했을 때 좀 더 디테일 하게 어떤 stage인 지 명시하기로 했다
 *   너무 길어서 retry 설정이 필요해보임
 
     <figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
@@ -54,6 +57,26 @@
       *   이걸 하면 파드에서 retry하는 게 아니라 gitlab에서 retry 하는 설정 이었음
 
           <figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+
+
+      * helm values 설정을 해봤는데 먹히지 않는다
+
+```yaml
+livenessProbe:
+  initialDelaySeconds: 30
+  timeoutSeconds: 3
+  periodSeconds: 5
+  failureThreshold: 1
+  path: /
+
+readinessProbe:
+  initialDelaySeconds: 30
+  timeoutSeconds: 3
+  periodSeconds: 5
+  failureThreshold: 1
+  path: /
+```
+
 * common before script로 loki url 프로젝트 배포 환경에 맞게 전달해서 로그를 바로 볼 수 있게 개선
 * staging deploy를 돌려보면서 적용할 수 있는 지 확인
   * 목표는 feature 브랜치에서 development로 merge된 경우 build stage를 생략하고 바로 deploy가 진행
