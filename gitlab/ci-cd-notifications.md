@@ -57,6 +57,8 @@
 
           <figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
+          <figure><img src="../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
+
 ### retry 설정
 
 *   readinessProbe 관련 문제로 review stage가 너무 길어서 retry 설정이 필요해보임
