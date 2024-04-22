@@ -10,6 +10,7 @@
 * start에서 이미지를 사용하지 않으면 curl 미설치 에러가 발생
   * ubuntu:latest 를 사용하고 before\_script에서 curl 설치를 했으나 어쩔땐 이 간략한 stage에서 2분이나 걸림
   * curl 만 설치된 base image 참조
+    * [https://hub.docker.com/r/alpine/curl](https://hub.docker.com/r/alpine/curl)
 * slack webhook url이 없는 상태인 경우 배포 pipeline이 안되는 것을 방지하기 위해서 allow\_failure : true 추가
   *   &#x20;설정을 하면 에러가 나도 스킵되고 나머지 stage가 진행됨
 
