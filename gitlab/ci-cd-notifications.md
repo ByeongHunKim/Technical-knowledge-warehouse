@@ -1,9 +1,5 @@
 # CI/CD Notifications
 
-{% embed url="https://medium.com/@mrdevx/step-by-step-guide-integrating-slack-with-gitlab-ci-for-seamless-ci-cd-notifications-be76a54d3038" %}
-
-***
-
 ## trouble shooting
 
 * start, finalize stage로 구현하려고 했는데, finalize stage에서 전체 파이프라인의 성공여부를 확인할 수 있는 predefined variable이 없고 $CI\_JOB\_STATUS 값이 있어서 해당 stage의 common after script에서 저 값으로 판단하여 deploy ( review, production ) stage에서 최종 성공 여부에 대한 메시지를 전달
@@ -52,6 +48,7 @@
 
 
   * 메시지 형식 최종 수정
+    * integration channel이 프로젝트별로 있는 게 아니라 프로젝트 팀 별로 있을거라서 팀에서 개발하는 프로젝트들에 대한 네이밍이 없으면 어떤 프로젝트의 배포 pipeline이 동작하는 지 알 수 없기 때문에 앞에 프로젝트 이름을 추가했다
     * `{프로젝트 repo 이름} {개발환경-prod,dev,feature branch} pipeline is started by {gitlab-user}`
       * `성공 시 프로젝트 링크`
       *   `실패 시 실패한 파이프라인 링크`
