@@ -48,7 +48,11 @@
 
 
 
-    * retry: max: 2 when: - always # 모든 종류의 실패에 대해 재시도 추가
+    * retry: max: 2 when: - always # 모든 종류의 실패에 대해 재시도 추가\
+
+      *   이걸 하면 파드에서 retry하는 게 아니라 gitlab에서 retry 하는 설정 이었음
+
+          <figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
 * common before script로 loki url 프로젝트 배포 환경에 맞게 전달해서 로그를 바로 볼 수 있게 개선
 * staging deploy를 돌려보면서 적용할 수 있는 지 확인
   * 목표는 feature 브랜치에서 development로 merge된 경우 build stage를 생략하고 바로 deploy가 진행

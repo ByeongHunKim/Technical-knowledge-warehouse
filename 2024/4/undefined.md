@@ -260,3 +260,26 @@
 이슈 및 문의사항
 
 * 없습니다
+
+***
+
+### 4월 22일 월요일
+
+한일
+
+* CI/CD 개선 업무
+  * gitlab 문서 보며 auto devops 학습
+  * flask 프로젝트에 base gitlab-ci 프로젝트의 development 에서 분기한 feature 브랜치 연결 후 개선사항 적용 테스트
+
+할일
+
+* CI/CD 개선 업무
+  * gitlab CI/CD slack notification 작업
+    * CI/CD 성공 시 프로젝트 url, 실패 시 failed job 링크
+    * retry 설정
+    * build stage 실패 시 알림 추가
+  * staging enabled
+
+이슈 및 문의사항
+
+* 없습니다
