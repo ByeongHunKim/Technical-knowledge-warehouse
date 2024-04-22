@@ -18,7 +18,7 @@
 * 메시지 간결화
   * 내가 구상한 integration 채널로 가는 게 아니라 team-prjname-integration 하나로 우선 가자고 하셔서 이에 맞게 메시지를 간결하고 직관적으로 구현
 
-![](<../.gitbook/assets/image (4).png>)
+![](<../.gitbook/assets/image (4) (1).png>)
 
 
 
@@ -26,40 +26,56 @@
 
 ## 추가 개선 사항
 
-* 성공했을 때는 프로젝트  url, 실패했을 때는 실패한 Job url을 보여주도록 개선
-  * deploy를 실패시키기 위해 livenessprobe를 /로 잡아놨는데 api endpoint를 바꿈
-  *
+### 성공했을 때는 프로젝트  url, 실패했을 때는 실패한 Job url을 보여주도록 개선
+
+* deploy를 실패시키기 위해 livenessprobe를 /로 잡아놨는데 api endpoint를 바꿈
+
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+
+* ![](<../.gitbook/assets/image (2) (1).png>)
+  * Liveness probe failed: HTTP probe failed with statuscode: 404
+* 메시지 failed 확인 및 링크 누를 시 실패한 review stage로 이동 확인
+  *   추후에 여기에 스레드에서 데브옵스 호출 하는 식으로
+
+      <figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+  *   성공했을 때는 프로젝트 url
 
       <figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
-  * ![](<../.gitbook/assets/image (2).png>)
-    * Liveness probe failed: HTTP probe failed with statuscode: 404
-  * 메시지 failed 확인 및 링크 누를 시 실패한 review stage로 이동 확인
-    *   추후에 여기에 스레드에서 데브옵스 호출 하는 식으로
+  *   실패했을 때는 실패한 job link
 
-        <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
-    *   성공했을 때는 프로젝트 url
-
-        <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
-    *   실패했을 때는 실패한 job link
-
-        <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 
-    * 실패했을 때 좀 더 디테일 하게 어떤 stage인 지 명시하기로 했다
-*   너무 길어서 retry 설정이 필요해보임
+  *   실패했을 때 좀 더 디테일 하게 어떤 stage인 지 명시하기로 했다
 
-    <figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
-
+      <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 
-    * retry: max: 2 when: - always # 모든 종류의 실패에 대해 재시도 추가\
+  * 메시지 형식 최종 수정
+    * `{프로젝트 repo 이름} {개발환경-prod,dev,feature branch} pipeline is started by {gitlab-user}`
+      * `성공 시 프로젝트 링크`
+      *   `실패 시 실패한 파이프라인 링크`
 
-      *   이걸 하면 파드에서 retry하는 게 아니라 gitlab에서 retry 하는 설정 이었음
+          <figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
-          <figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+          <figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+### retry 설정
+
+*   readinessProbe 관련 문제로 review stage가 너무 길어서 retry 설정이 필요해보임
+
+    <figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
-      * helm values 설정을 해봤는데 먹히지 않는다
+* retry: max: 2 when: - always # 모든 종류의 실패에 대해 재시도 추가\
+
+  *   이걸 하면 파드에서 retry하는 게 아니라 gitlab에서 retry 하는 설정 이었음
+
+      <figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+
+
+* helm values 설정을 해봤는데 먹히지 않는다
+* auto deploy values.yaml 코드를 봤는데 관련된 값이 없어서 적용이 안되는 것 같다
 
 ```yaml
 livenessProbe:
@@ -77,7 +93,33 @@ readinessProbe:
   path: /
 ```
 
-* common before script로 loki url 프로젝트 배포 환경에 맞게 전달해서 로그를 바로 볼 수 있게 개선
-* staging deploy를 돌려보면서 적용할 수 있는 지 확인
-  * 목표는 feature 브랜치에서 development로 merge된 경우 build stage를 생략하고 바로 deploy가 진행
-  * 현재는 production ( main ) 브랜치만 production stage고 나머지는 모두 review stage 임
+***
+
+### build stage에도 after script로 실패시에만 알림을 가도록 추가
+
+1. kaniko image에서 curl이 없어서 slack 알림을 보낼 시 에러 발생
+   1. nexus에 custom image를 만들어서 사용 했지만 로그인 관련 이슈 때문에 포기
+   2. docker hub public repo에 push 해서 사용 했지만 실패해서 포기
+   3. curl base imgae를 사용하도록 job을 분리해서 사용 시도
+      1. `on_failure: true`
+         1.  앞 stage ( build ) 가 실패했을 때만 동작하도록 설정
+
+             <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+         2.  성공 시 skip 되는 것 확인
+
+             <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+***
+
+### common before script로 loki url 프로젝트 배포 환경에 맞게 전달해서 로그를 바로 볼 수 있게 개선
+
+
+
+***
+
+### staging deploy를 돌려보면서 적용할 수 있는 지 확인
+
+* 목표는 feature 브랜치에서 development로 merge된 경우 build stage를 생략하고 바로 deploy가 진행
+* 현재는 production ( main ) 브랜치만 production stage고 나머지는 모두 review stage 임
+
+***

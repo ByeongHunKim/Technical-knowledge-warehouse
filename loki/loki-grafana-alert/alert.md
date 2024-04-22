@@ -81,9 +81,9 @@ contact point를 생성하기 전에 slack 알림을 받을 채널을 먼저 생
 
 ### 3.2 contact point setting
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>New contact point</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption><p>New contact point</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * name
   * 현재는 `prj-contact-point` 로 정했다
@@ -96,15 +96,15 @@ contact point를 생성하기 전에 slack 알림을 받을 채널을 먼저 생
 
 * test를 해보면 알림이 해당 채널로 온다
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
 ## 4. notification policies
 
-<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>New policy</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption><p>New policy</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 * add matcher
   * 2.4 에서 설정한 alert rule label을 입력한다
