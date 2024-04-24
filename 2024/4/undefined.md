@@ -312,3 +312,32 @@
 이슈 및 문의사항
 
 * 없습니다
+
+***
+
+### 4월 24일 수요일
+
+한일
+
+* CI/CD 개선 업무
+  * gitlab CI/CD slack notification 작업
+    * nestjs test project에 base ci 프로젝트에 custom branch를 연결해서 deploy test
+    * deploy ( review, production ) 시작 전에 loki url 전달 메시지 추가
+    * staging enabled 관련 작업
+      * review stage feafure 브랜치만 동작하게 수정
+      * staging development 브랜치만 동작하게 수정
+      * 활성화했을 때 어떻게 job이 실행되는 지 파악해서 적용 가능한 지 파악해봤는데 똑같습니다
+
+할일
+
+* CI/CD 개선 업무
+  * staging enabled 관련 다시 review로 롤백할 지
+  * gitlab CI/CD slack notification 적용 하고 다시 이어서 추가 작업할 지
+  * AutoDevOps helm values 개선 티켓 시작
+
+이슈 및 문의사항
+
+* 아래 둘 작업에 대해서 논의가 필요합니다
+  * staging enabled 관련 다시 review로 롤백할 지
+  * gitlab CI/CD slack notification base main 브랜치에 머지 하고 다시 이어서 추가 작업할 지
+    * 프로젝트 팀들이 사용할 수 있도록 적용 가능
