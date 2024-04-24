@@ -112,6 +112,26 @@ readinessProbe:
 
 ### common before script로 loki url 프로젝트 배포 환경에 맞게 전달해서 로그를 바로 볼 수 있게 개선
 
+```yaml
+.common_before_script: &common_before_script
+  before_script:
+    - |
+      if [[ "$CI_COMMIT_REF_NAME" == "main" ]]; then
+      LOG_DOMAIN=""
+      elif [[ "$CI_COMMIT_REF_NAME" == "development" ]]; then
+      LOG_DOMAIN=""
+      else
+      LOG_DOMAIN=""
+      fi
+      echo "Loki domain : $LOG_DOMAIN"
+      LOG_URL="$LOG_DOMAIN/explore?orgId=1&left=%7B%22datasource%22:%22LokiDataSourceName%22,%22queries%22:%5B%7B%22refId%22:%22A%22,%22editorMode%22:%22builder%22,%22expr%22:%22%7Bnamespace%3D%5C%22$KUBE_NAMESPACE%5C%22%7D%22,%22queryType%22:%22range%22%7D%5D,%22range%22:%7B%22from%22:%22now-1h%22,%22to%22:%22now%22%7D%7D"
+      MESSAGE=":mag_right: $CI_PROJECT_NAME deploy stage is *started* by *$GITLAB_USER_LOGIN* (<$LOG_URL|View Runtime Logs>)"
+      curl -X POST -H 'Content-type: application/json' \
+      --data "{\"text\":\"$MESSAGE\"}" \
+      $SLACK_WEBHOOK_URL
+  allow_failure: true
+```
+
 
 
 ***

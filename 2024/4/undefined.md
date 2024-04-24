@@ -283,3 +283,32 @@
 이슈 및 문의사항
 
 * 없습니다
+
+***
+
+### 4월 24일 수요일
+
+한일
+
+* CI/CD 개선 업무
+  * gitlab CI/CD slack notification 작업
+    * CI/CD 성공 시 프로젝트 url, 실패 시 failed job 링크
+    * retry 설정
+      * auto deploy values 에 있는 probe에 retry 값이 없음
+      * gitlab ci 설정 시 job이 실패하면 다시 실행하는 retry 설정
+    * build stage 실패 시 알림 추가
+    * 메시지 포맷 수정
+
+할일
+
+* CI/CD 개선 업무
+  * gitlab CI/CD slack notification 작업 마무리
+    * feature branch deploy test
+    * nestjs test project에 base ci 프로젝트에 custom branch를 연결해서 deploy test&#x20;
+    * deploy ( review, production ) 시작 전에 loki url 전달해주는 것
+  * staging enabled 관련 작업
+    * 활성화했을 때 어떻게 job이 실행되는 지 파악해서 적용 가능한 지 파악
+
+이슈 및 문의사항
+
+* 없습니다
