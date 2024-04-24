@@ -132,7 +132,39 @@ readinessProbe:
   allow_failure: true
 ```
 
+```yaml
+.common_before_script: &common_before_script
+  before_script:
+    - |
+      if [[ -z "$SLACK_WEBHOOK_URL" ]]; then
+        echo "SLACK_WEBHOOK_URL is not set. Skipping Slack notification."
+      else
+        if [[ "$CI_COMMIT_REF_NAME" == "main" ]]; then
+          LOG_DOMAIN=""
+        elif [[ "$CI_COMMIT_REF_NAME" == "development" ]]; then
+          LOG_DOMAIN=""
+        else
+          LOG_DOMAIN=""
+        fi
+        echo "Loki domain : $LOG_DOMAIN"
+        LOG_URL="$LOG_DOMAIN/explore?orgId=1&left=%7B%22datasource%22:%22LokiDataSourceName%22,%22queries%22:%5B%7B%22refId%22:%22A%22,%22editorMode%22:%22builder%22,%22expr%22:%22%7Bnamespace%3D%5C%22$KUBE_NAMESPACE%5C%22%7D%22,%22queryType%22:%22range%22%7D%5D,%22range%22:%7B%22from%22:%22now-1h%22,%22to%22:%22now%22%7D%7D"
+        MESSAGE=":rocket: $CI_PROJECT_NAME deploy stage is *started* by *$GITLAB_USER_LOGIN* (<$LOG_URL|View Runtime Logs>)"
+        curl -X POST -H 'Content-type: application/json' \
+        --data "{\"text\":\"$MESSAGE\"}" $SLACK_WEBHOOK_URL
+        if [[ "$?" != "0" ]]; then
+          echo "ERROR: Failed to send Slack notification."
+          exit 1
+        fi
+      fi
+```
 
+#### 주요 변경 사항
+
+* **환경 변수 체크**: `SLACK_WEBHOOK_URL`이 설정되지 않은 경우 경고 메시지를 출력하고 Slack 알림을 건너뜀
+* **실패 처리**: `curl` 명령어 실행 후 반환 값이 0이 아닐 경우 (실패한 경우), 에러 메시지를 출력하고 스크립트를 종료.(`exit 1`). 이렇게 하면 해당 작업이 실패로 처리.
+* **`allow_failure` 설정**: `allow_failure`를 default인 `false`로 설정하여, 스크립트의 실패가 전체 파이프라인의 실패로 이어지게 수정
+
+이 방식을 통해 중요하지 않은 경고는 무시하고, 실제 문제 발생 시 파이프라인이 실패하도록 설정. 이렇게 하면 슬랙 웹훅 URL이 없는 경우에는 경고만 하고, 다른 중요한 실패에서는 파이프라인이 실패 상태로 마무리되어 적절한 조치를 취할 수 있다
 
 ***
 
@@ -142,3 +174,4 @@ readinessProbe:
 * 현재는 production ( main ) 브랜치만 production stage고 나머지는 모두 review stage 임
 
 ***
+
