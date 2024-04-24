@@ -59,6 +59,11 @@
 
           <figure><img src="../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
 
+
+  *   아래 명시가 되어있긴 하지만 deploy ( review, production ) 단계 시작 전 runtime log를 볼 수 있게 프로젝트 별 로그를 확인할 수 있는 loki url을 만들어서 첨부
+
+      <figure><img src="../.gitbook/assets/image (33).png" alt=""><figcaption></figcaption></figure>
+
 ### retry 설정
 
 *   readinessProbe 관련 문제로 review stage가 너무 길어서 retry 설정이 필요해보임
@@ -165,6 +170,12 @@ readinessProbe:
 * **`allow_failure` 설정**: `allow_failure`를 default인 `false`로 설정하여, 스크립트의 실패가 전체 파이프라인의 실패로 이어지게 수정
 
 이 방식을 통해 중요하지 않은 경고는 무시하고, 실제 문제 발생 시 파이프라인이 실패하도록 설정. 이렇게 하면 슬랙 웹훅 URL이 없는 경우에는 경고만 하고, 다른 중요한 실패에서는 파이프라인이 실패 상태로 마무리되어 적절한 조치를 취할 수 있다
+
+
+
+<figure><img src="../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
+
+
 
 ***
 
