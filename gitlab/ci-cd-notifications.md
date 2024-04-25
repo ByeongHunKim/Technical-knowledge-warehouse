@@ -2,6 +2,18 @@
 
 ## trouble shooting
 
+* auto devops basic enable
+  * 프로젝트에서 custom auto devops 코드 제거
+  * 프로젝트 - ci/cd 메뉴에서 basic auto devops 사용 enable
+  * gitlab registry 사용하기 ( gitlab variable 설정 )
+  * Docker in Docker 에러 해결 ( CI/CD Settings → Runners → **Enable instance runners for this project** → Disable group runners )
+  * branch 별 배포 되는 네임스페이스
+    * main ( eks dev cluster )
+      * $CI\_PROJECT\_NAME-production
+    * development ( eks dev cluster )
+      * $CI\_PROJECT\_NAME
+    * 나머지 feature 브랜치 ( play cluster )
+      * $CI\_PROJECT\_NAME-$CI\_COMMIT\_REF\_SLUG
 * start, finalize stage로 구현하려고 했는데, finalize stage에서 전체 파이프라인의 성공여부를 확인할 수 있는 predefined variable이 없고 $CI\_JOB\_STATUS 값이 있어서 해당 stage의 common after script에서 저 값으로 판단하여 deploy ( review, production ) stage에서 최종 성공 여부에 대한 메시지를 전달
 * start에서 이미지를 사용하지 않으면 curl 미설치 에러가 발생
   * ubuntu:latest 를 사용하고 before\_script에서 curl 설치를 했으나 어쩔땐 이 간략한 stage에서 2분이나 걸림
