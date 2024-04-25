@@ -22,11 +22,11 @@
 * slack webhook url이 없는 상태인 경우 배포 pipeline이 안되는 것을 방지하기 위해서 allow\_failure : true 추가
   *   &#x20;설정을 하면 에러가 나도 스킵되고 나머지 stage가 진행됨
 
-      <figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
 * 메시지 간결화
   * 내가 구상한 integration 채널로 가는 게 아니라 team-prjname-integration 하나로 우선 가자고 하셔서 이에 맞게 메시지를 간결하고 직관적으로 구현
 
-![](<../.gitbook/assets/image (4) (1).png>)
+![](<../../.gitbook/assets/image (4) (1) (1).png>)
 
 
 
@@ -38,25 +38,25 @@
 
 * deploy를 실패시키기 위해 livenessprobe를 /로 잡아놨는데 api endpoint를 바꿈
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-* ![](<../.gitbook/assets/image (2) (1) (1).png>)
+* ![](<../../.gitbook/assets/image (2) (1) (1) (1).png>)
   * Liveness probe failed: HTTP probe failed with statuscode: 404
 * 메시지 failed 확인 및 링크 누를 시 실패한 review stage로 이동 확인
   *   추후에 여기에 스레드에서 데브옵스 호출 하는 식으로
 
-      <figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
   *   성공했을 때는 프로젝트 url
 
-      <figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
   *   실패했을 때는 실패한 job link
 
-      <figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 
   *   실패했을 때 좀 더 디테일 하게 어떤 stage인 지 명시하기로 했다
 
-      <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 
   * 메시지 형식 최종 수정
@@ -65,29 +65,29 @@
       * `성공 시 프로젝트 링크`
       *   `실패 시 실패한 파이프라인 링크`
 
-          <figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+          <figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
-          <figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+          <figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
-          <figure><img src="../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
+          <figure><img src="../../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
 
 
   *   아래 명시가 되어있긴 하지만 deploy ( review, production ) 단계 시작 전 runtime log를 볼 수 있게 프로젝트 별 로그를 확인할 수 있는 loki url을 만들어서 첨부
 
-      <figure><img src="../.gitbook/assets/image (33).png" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../../.gitbook/assets/image (33).png" alt=""><figcaption></figcaption></figure>
 
 ### retry 설정
 
 *   readinessProbe 관련 문제로 review stage가 너무 길어서 retry 설정이 필요해보임
 
-    <figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 * retry: max: 2 when: - always # 모든 종류의 실패에 대해 재시도 추가\
 
   *   이걸 하면 파드에서 retry하는 게 아니라 gitlab에서 retry 하는 설정 이었음
 
-      <figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
 
 
 * helm values 설정을 해봤는데 먹히지 않는다
@@ -120,10 +120,10 @@ readinessProbe:
       1. `on_failure: true`
          1.  앞 stage ( build ) 가 실패했을 때만 동작하도록 설정
 
-             <figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+             <figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
          2.  성공 시 skip 되는 것 확인
 
-             <figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+             <figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -185,7 +185,7 @@ readinessProbe:
 
 
 
-<figure><img src="../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -200,11 +200,11 @@ readinessProbe:
 
 
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 * staging도 review랑 다른 점이 느껴지지 않는다
 
