@@ -13,7 +13,7 @@
 1. 빌드 및 배포 실패
 2. ingration 채널에 실패 메시지 알림
 3. 해당 메시지 링크를 복사해서 part-devops-operation 채널에 붙여놓고 @tect-devops 호출 또는 해당 메시지 스레드에 @tect-devops 호출
-4. 배포 시작 시 오는 메시지의 링크를 클릭해서 runtime log 확인
+4. 배포 시작 시 오는 메시지의 링크를 클릭해서 runtime log (loki URL) 확인
 5. 성공 시 오는 메시지의 링크를 클릭해서 변경사항 확인
 
 ***
