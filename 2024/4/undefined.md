@@ -315,7 +315,7 @@
 
 ***
 
-### 4월 25일 수요일
+### 4월 25일 목요일
 
 한일
 
@@ -341,3 +341,22 @@
   * staging enabled 관련 다시 review로 롤백할 지
   * gitlab CI/CD slack notification base main 브랜치에 머지 하고 다시 이어서 추가 작업할 지
     * 프로젝트 팀들이 사용할 수 있도록 적용 가능
+
+### 4월 26일 금요일
+
+한일
+
+* CI/CD 개선 업무
+  * gitlab CI/CD slack notification 작업
+    * feature branch deploy 시 imagePullBackOff 에러 해결
+    * base-gitlab-ci 프로젝트 개발했던 브랜치에서 main
+
+할일
+
+* development review -> staging 으로 변경
+* production 배포 시 프로젝트 url은 PRODUCTION\_ADDITIONAL\_HOSTS 사용하도록 수정
+* 스레드 댓글로 알림 메시지 관리할 수 있도록 수정
+
+이슈 및 문의사항
+
+* 없습니다
