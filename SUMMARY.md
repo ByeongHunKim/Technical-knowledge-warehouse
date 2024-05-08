@@ -62,9 +62,10 @@
 
 * [nGrinder](load-test/ngrinder/README.md)
   * [Script](load-test/ngrinder/script/README.md)
-    * [Groovy Script Structure](load-test/ngrinder/script/groovy-script-structure/README.md)
+    * [Groovy Script Structure](load-test/ngrinder/script/groovy.md)
       * [reference](https://ckddn9496.tistory.com/120)
       * [Groovy script deep dive](load-test/ngrinder/script/groovy-script-structure/groovy-script-deep-dive.md)
+    * [Groovy Script 실행 구조 분석](load-test/ngrinder/script/groovy-script.md)
 
 ## Tips
 
