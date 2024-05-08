@@ -2,7 +2,21 @@
 
 {% embed url="https://github.com/naver/ngrinder/releases/tag/ngrinder-3.5.9-20230227" %}
 
+{% hint style="danger" %}
+net.grinder.engine.common.engineexception: setting of local dns provider failed 에러 때문에 jdk-22가 아니라, 11을 설치해야한다
+{% endhint %}
+
 {% embed url="https://download.oracle.com/java/22/latest/jdk-22_macos-aarch64_bin.dmg" %}
+jdk-22 최신설치 x
+{% endembed %}
+
+{% embed url="https://www.oracle.com/java/technologies/downloads/#java11" %}
+11을 받아야한다
+{% endembed %}
+
+* 라이센스 때문에 로그인을 해야한다
+
+
 
 #### nGrinder 자세한 설명 및 구성 이해하기
 
