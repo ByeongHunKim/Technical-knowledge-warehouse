@@ -1,6 +1,10 @@
-# Groovy
+# Groovy Script Structure
 
 nGrinder에서 기본 스크립트를 생성했을 때 나오는 기본 스크립트는 Java로 작성되었지만, Groovy 스타일로 보일 수 있다. 실제로 nGrinder는 `JUnit`을 기반으로 Java 언어를 사용하지만, Groovy 스타일로 작성된 `GrinderRunner`와 같은 주석 및 어노테이션을 포함하고 있다.
+
+
+
+nGrinder Groovy 테스트를 위해서는 클래스 위에 @RunWith(GrinderRunner) 애너테이션을 꼭 붙여주어야 한다. 이 부분은 GroovyRunner가 JUnit의 행동을 제어하며 JUnit에 grinder context를 마운트 한다.
 
 
 
