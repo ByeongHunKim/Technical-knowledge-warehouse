@@ -60,7 +60,8 @@
 
 ## &#x20;load test
 
-* [nGrinder](load-test/ngrinder.md)
+* [nGrinder](load-test/ngrinder/README.md)
+  * [Groovy script](load-test/ngrinder/groovy-script.md)
 
 ## Tips
 
