@@ -58,6 +58,10 @@
   * [1차 검증 결과](loki/loki-grafana-alert/1.md)
   * [Alert 환경 구성 가이드](loki/loki-grafana-alert/alert.md)
 
+## &#x20;load test
+
+* [nGrinder](load-test/ngrinder.md)
+
 ## Tips
 
 * [Kubernetes](tips/kubernetes/README.md)
