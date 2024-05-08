@@ -45,6 +45,7 @@
   * [Ingress란](kubernetes/ingress/ingress.md)
   * [수동으로 ingress 배포하기](kubernetes/ingress/ingress-1.md)
 * [Security](kubernetes/security.md)
+* [HPA](kubernetes/hpa.md)
 
 ## prometheus
 
@@ -61,11 +62,16 @@
 ## &#x20;load test
 
 * [nGrinder](load-test/ngrinder/README.md)
+  * [질문리스트](load-test/ngrinder/undefined/README.md)
+    * [groovy는 JUnit 스타일에 포함되지 않는건가 ? + GTest가 뭔지 좀 헷갈린다](load-test/ngrinder/undefined/groovy-junit-+-gtest.md)
   * [Script](load-test/ngrinder/script/README.md)
     * [Groovy Script Structure](load-test/ngrinder/script/groovy.md)
       * [reference](https://ckddn9496.tistory.com/120)
       * [Groovy script deep dive](load-test/ngrinder/script/groovy-script-structure/groovy-script-deep-dive.md)
-    * [Groovy Script 실행 구조 분석](load-test/ngrinder/script/groovy-script.md)
+      * [Groovy Script 실행 구조 분석](load-test/ngrinder/script/groovy-script-structure/groovy-script.md)
+  * [Test](load-test/ngrinder/test/README.md)
+    * [1차 테스트](load-test/ngrinder/test/1.md)
+    * [2차 테스트](load-test/ngrinder/test/2.md)
 
 ## Tips
 

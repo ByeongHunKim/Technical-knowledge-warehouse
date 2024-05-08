@@ -38,7 +38,7 @@
 
 * deploy를 실패시키기 위해 livenessprobe를 /로 잡아놨는데 api endpoint를 바꿈
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * ![](<../../.gitbook/assets/image (2) (1) (1) (1).png>)
   * Liveness probe failed: HTTP probe failed with statuscode: 404
@@ -48,7 +48,7 @@
       <figure><img src="../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
   *   성공했을 때는 프로젝트 url
 
-      <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
   *   실패했을 때는 실패한 job link
 
       <figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
@@ -202,7 +202,7 @@ readinessProbe:
 
 <figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 

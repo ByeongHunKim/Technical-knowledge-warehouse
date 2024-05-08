@@ -2,7 +2,7 @@
 
 
 
-<figure><img src="../../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
 
 #### nGrinder 테스트 실행 구조 (Groovy Script Engine)
 
