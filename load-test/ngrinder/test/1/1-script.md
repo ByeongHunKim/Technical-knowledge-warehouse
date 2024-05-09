@@ -15,26 +15,6 @@
 
 ## 2. nGrinder로 부하주기
 
-{% hint style="info" %}
-targetCPUUtilizationPercentage 계산은 어떻게 되는가
-{% endhint %}
-
-* **`targetCPUUtilizationPercentage` 계산 방식**:
-  * `targetCPUUtilizationPercentage`는 현재 CPU 사용량이 `requests.cpu`에 대해 차지하는 백분율을 기반으로 계산
-* **`targetCPUUtilizationPercentage` 계산 공식**:
-  * `Desired Pod Count = ceil(Current Pod Count * (Current CPU Usage / (targetCPUUtilizationPercentage / 100)))`
-* 공식 문서의 관련 내용은 다음과 같다:
-
-{% embed url="https://discuss.kubernetes.io/t/kubernetes-amount-of-pods-vs-amount-of-cpu-requests/17493/2" %}
-
-> The Horizontal Pod Autoscaler automatically scales the number of pods in a replication controller, deployment or replica set based on observed CPU utilization (or, with custom metrics support, on some other application-provided metrics).
-
-* **CPU 또는 메모리 `requests`의 필요성**:
-  * HPA가 제대로 작동하려면 `requests.cpu` 또는 `requests.memory`를 설정해야 한다.
-  * `requests` 값이 없으면 HPA는 리소스 사용률을 계산할 수 없다.
-
-
-
 <figure><img src="../../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>부하테스트 시작 직후 상태</p></figcaption></figure>
 
 &#x20;

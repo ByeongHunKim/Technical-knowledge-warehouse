@@ -48,6 +48,7 @@
 * [HPA](kubernetes/hpa/README.md)
   * [HELM\_UPGRADE\_VALUES\_FILE로 hpa가 추가되지 않는 원인](kubernetes/hpa/helm\_upgrade\_values\_file-hpa.md)
   * [helm values에 cpu resource 단위를 1로 했을 때 실제 파드에 1m( 0.001 ) 코어가 부여된 것](kubernetes/hpa/helm-values-cpu-resource-1-1m-0.001.md)
+  * [targetCPUUtilizationPercentage 계산은 어떻게 되는가](kubernetes/hpa/targetcpuutilizationpercentage.md)
 
 ## prometheus
 
