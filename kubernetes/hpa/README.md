@@ -147,7 +147,3 @@ hpa:
         type: Utilization
         averageUtilization: 80
 ```
-
-**공식 문서**
-
-* Helm Charts (Horizontal Pod Autoscaler 예시)
