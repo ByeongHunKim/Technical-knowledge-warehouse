@@ -24,14 +24,14 @@
 
 *   before
 
-    <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 *   after
 
     <figure><img src="../../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
 * start : pipeline이 시작되었는 알림을 연결된 슬랙 채널에 전송
 *   build-check : build stage가 실패했을 때만 동작하여 실패 알림을 연결된 슬랙 채널에 전송
 
-    <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### 2. review stage에 common\_after,before\_script 추가
 
@@ -53,23 +53,23 @@
 
 #### 4.1 pipeline 성공 ( feature branch )
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### 4.2 pipeline 성공 ( development branch )
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### 4.3 pipeline 성공 ( main branch )
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### 4.4 pipeline 실패 ( 빌드 )
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### 4.5 pipeline 실패 ( 배포 )
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 시도 했지만 실패한 작업
 
