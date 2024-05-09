@@ -45,7 +45,8 @@
   * [Ingress란](kubernetes/ingress/ingress.md)
   * [수동으로 ingress 배포하기](kubernetes/ingress/ingress-1.md)
 * [Security](kubernetes/security.md)
-* [HPA](kubernetes/hpa.md)
+* [HPA](kubernetes/hpa/README.md)
+  * [HELM\_UPGRADE\_VALUES\_FILE로 hpa가 추가되지 않는 원인](kubernetes/hpa/helm\_upgrade\_values\_file-hpa.md)
 
 ## prometheus
 

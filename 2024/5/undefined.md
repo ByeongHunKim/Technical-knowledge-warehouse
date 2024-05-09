@@ -66,3 +66,21 @@
 이슈 및 문의사항
 
 * 없습니다
+
+### 5월 9일 목요일
+
+한일
+
+* lazyants-airdrop-web feature branch 배포되는데 안되도록 하는 것 확인
+* ngrinder 설치
+* 사용해보며 eks에 배포된 test project에 테스트로 요청보내기
+* hpa 동작 확인 ( helm values )
+
+할일
+
+* groovy 확인
+* hpa 동작 확인
+
+이슈 및 문의사항
+
+* 없습니다
