@@ -46,12 +46,12 @@
   * [수동으로 ingress 배포하기](kubernetes/ingress/ingress-1.md)
 * [Security](kubernetes/security.md)
 * [HPA](kubernetes/hpa/README.md)
-  * [hpa trouble shooting history](kubernetes/hpa/hpa-trouble-shooting-history/README.md)
-    * [1. HELM\_UPGRADE\_VALUES\_FILE로 hpa가 추가되지 않는 원인](kubernetes/hpa/hpa-trouble-shooting-history/1.-helm\_upgrade\_values\_file-hpa.md)
-    * [2. targetCPUUtilizationPercentage 계산은 어떻게 되는가](kubernetes/hpa/hpa-trouble-shooting-history/2.-targetcpuutilizationpercentage.md)
-    * [3. helm values에 cpu resource 단위를 1로 했을 때 실제 파드에 1m( 0.001 ) 코어가 부여된 것](kubernetes/hpa/hpa-trouble-shooting-history/3.-helm-values-cpu-resource-1-1m-0.001.md)
-    * [4. pod cpu resources가 할당받은 것을 나타내는 것인 지 현재 사용량을 나타내는 것인지 검증](kubernetes/hpa/hpa-trouble-shooting-history/4.-pod-cpu-resources.md)
-    * [5. 설정한 hpa를 기반으로 pod auto scaling이 동작하는 지 검증](kubernetes/hpa/hpa-trouble-shooting-history/5.-hpa-pod-auto-scaling.md)
+  * [hpa troubleshooting history](kubernetes/hpa/hpa-troubleshooting-history/README.md)
+    * [1. HELM\_UPGRADE\_VALUES\_FILE로 hpa가 추가되지 않는 원인](kubernetes/hpa/hpa-troubleshooting-history/1.-helm\_upgrade\_values\_file-hpa.md)
+    * [2. targetCPUUtilizationPercentage 계산은 어떻게 되는가](kubernetes/hpa/hpa-troubleshooting-history/2.-targetcpuutilizationpercentage.md)
+    * [3. helm values에 cpu resource 단위를 1로 했을 때 실제 파드에 1m( 0.001 ) 코어가 부여된 것](kubernetes/hpa/hpa-troubleshooting-history/3.-helm-values-cpu-resource-1-1m-0.001.md)
+    * [4. pod cpu resources가 할당받은 것을 나타내는 것인 지 현재 사용량을 나타내는 것인지 검증](kubernetes/hpa/hpa-troubleshooting-history/4.-pod-cpu-resources.md)
+    * [5. 설정한 hpa를 기반으로 pod auto scaling이 동작하는 지 검증](kubernetes/hpa/hpa-troubleshooting-history/5.-hpa-pod-auto-scaling.md)
   * [HorizontalPodAutoscaler의 behavior 필드 중 stabilizationWindowSeconds 값이 Kubernetes 코드에서 어떻게 사용되는지 분석](kubernetes/hpa/horizontalpodautoscaler-behavior-stabilizationwindowseconds-kubernetes.md)
 
 ## prometheus
