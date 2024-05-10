@@ -4,6 +4,10 @@
 
 {% embed url="https://kubernetes.io/ko/docs/tasks/run-application/horizontal-pod-autoscale/" %}
 
+{% embed url="https://docs.aws.amazon.com/eks/latest/userguide/horizontal-pod-autoscaler.html" %}
+
+
+
 Horizontal Pod Autoscaler (HPA)는 Kubernetes 환경에서 Pod의 수를 자동으로 조절하여 클러스터의 리소스 사용률을 최적화하는 기능이다. 이를 설명할 때 어떤 관점으로 접근할지는 상황에 따라 다릅니다. 각 관점에서의 내용을 살펴보자.
 
 #### 1. Kubernetes 관점에서의 HPA

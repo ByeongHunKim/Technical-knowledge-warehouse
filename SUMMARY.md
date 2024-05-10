@@ -77,7 +77,8 @@
       * [Groovy Script 실행 구조 분석](load-test/ngrinder/script/groovy-script-structure/groovy-script.md)
   * [Test](load-test/ngrinder/test/README.md)
     * [1차 테스트](load-test/ngrinder/test/1/README.md)
-      * [1차 테스트 script 기반 종합테스트](load-test/ngrinder/test/1/1-script.md)
+      * [1차 script 기반 cpu 사용량 테스트](load-test/ngrinder/test/1/1-script-cpu.md)
+      * [1차 script 기반 pod autoscaling 테스트](load-test/ngrinder/test/1/1-script-pod-autoscaling.md)
     * [2차 테스트](load-test/ngrinder/test/2.md)
 
 ## Tips
