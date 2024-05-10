@@ -10,11 +10,15 @@
 
 #### to-be
 
-1. 빌드 및 배포 실패
-2. ingration 채널에 실패 메시지 알림
-3. 해당 메시지 링크를 복사해서 part-devops-operation 채널에 붙여놓고 @tect-devops 호출 또는 해당 메시지 스레드에 @tect-devops 호출
-4. 배포 시작 시 오는 메시지의 링크를 클릭해서 runtime log (loki URL) 확인
-5. 성공 시 오는 메시지의 링크를 클릭해서 변경사항 확인
+1. 파이프라인 시작 시 알림
+2. 빌드 및 배포 실패 시 어떤 과정에서 실패했는 지 ingration 채널에 실패 메시지 알림
+   1. 해당 슬랙 메시지 링크를 복사해서 part-devops-operation 채널에 붙여놓고 @tect-devops 호출 또는 해당 메시지 스레드에 @tect-devops 호출
+3. 배포 시작 시 오는 메시지의 링크를 클릭해서 runtime log (loki URL) 확인
+   1. 파드가 뜨는 과정의 로그를 개발자분들이 클러스터 연결 ( kubectl ) 필요 없이 체크
+4. 성공 시 오는 메시지의 링크(프로젝트  URL) 를 클릭해서 변경사항 확인
+5. production은 production stage로 배포 ( eks cluster )
+6. development 는 development stage로 배포 ( eks cluster )
+7. feature 단위 브랜치들은 review stage로 배포 ( on-premise kubernetes cluster )
 
 ***
 
@@ -69,7 +73,7 @@
 
 #### 4.5 pipeline 실패 ( 배포 )
 
-<figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (47).png" alt=""><figcaption></figcaption></figure>
 
 ### 시도 했지만 실패한 작업
 
@@ -78,6 +82,3 @@
   * gitlab ci 설정을 하면 설정한 retry값만큼 해당 job이 다시 돌아 필요 없음
 * 채널 알림을 꺼두고 멘션이 울렸을 때만 확인하도록 메시지에 유저를 태그&#x20;
   * 단순히 이름이 아니라, slack ID를 매핑해줘야 하는 이슈로 실패
-* staging enalbed 하여 development 는 staging으로 배포
-  * review stage랑 차이가 없어서 롤백
-* development branch 현행화
