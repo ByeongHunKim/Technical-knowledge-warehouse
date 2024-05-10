@@ -35,7 +35,7 @@
     * [CI/CD 컴포넌트](gitlab/gitlab-ci-cd/gitlab-ci-cd/ci-cd-1.md)
   * [CI/CD YAML 구문 참조](gitlab/gitlab-ci-cd/ci-cd-yaml.md)
 * [CI/CD Notifications](gitlab/ci-cd-notifications/README.md)
-  * [MR](gitlab/ci-cd-notifications/mr.md)
+  * [CI/CD slack notifiaction 구축작업 결과](gitlab/ci-cd-notifications/ci-cd-slack-notifiaction.md)
 
 ## Kubernetes
 

@@ -1,6 +1,6 @@
-# MR
+# CI/CD slack notifiaction 구축작업 결과
 
-## CI/CD slack notifiaction 구축작업 MR&#x20;
+## CI/CD slack notifiaction 구축작업&#x20;
 
 #### as-is
 
