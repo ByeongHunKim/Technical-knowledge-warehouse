@@ -1,5 +1,12 @@
 # 1차 script 기반 pod autoscaling 테스트
 
+#### **요약:**
+
+* 스케일 다운 지연 문제의 원인은 기본 스케일 다운 정책의 안정화 기간(5분) 때문임.
+* 이를 해결하기 위해 **`behavior`** 필드를 활용하여 안정화 기간을 줄이는 등의 정책을 커스텀하여 적용할 수 있음
+
+
+
 * 현재 deployment에 cpu 100m, memory 128mi, targetCPUUtilizationPercentage: 30 할당
 
 <figure><img src="../../../../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
@@ -68,7 +75,36 @@ scale out는 잘 됐는데, 기대했던 바와 달리 scale down이 바로 이�
 
 * 이 두 부분을 보면 default 값이 5분이라는 것을 알 수 있다
 
+```yaml
+behavior:
+  scaleDown:
+    stabilizationWindowSeconds: 300
+    policies:
+    - type: Percent
+      value: 100
+      periodSeconds: 15
+  scaleUp:
+    stabilizationWindowSeconds: 0
+    policies:
+    - type: Percent
+      value: 100
+      periodSeconds: 15
+    - type: Pods
+      value: 4
+      periodSeconds: 15
+    selectPolicy: Max
+```
 
+**기본 스케일 다운 예시 설명**:
+
+* **`300초`** 안정화 기간 동안 스케일 다운 이벤트를 제한.
+* **`15초`** 동안 전체 파드의 `100%`까지 스케일 다운할 수 있다.
+
+**기본 스케일 업 예시 설명**:
+
+* **`0초`** 안정화 기간이므로 바로 스케일 업 이벤트를 발생시킨다.
+* **`15초`** 동안 총 파드 수의 `100%`까지 늘리거나, 최대`4개`의 파드를 추가한다.
+* `selectPolicy`가 `Max`로 설정되어 있으므로 두 정책 중 더 큰 값이 적용된다.
 
 #### behavior 필드 구성
 
@@ -131,8 +167,8 @@ scaleUp:
 **`scaleDown` 필드**
 
 * **`stabilizationWindowSeconds`**:
-  * 스케일 다운의 안정화 기간(초 단위)입니다.
-  * 지정된 시간 내에 스케일 다운 이벤트가 반복되지 않도록 제한합니다.
+  * 스케일 다운의 안정화 기간(초 단위).
+  * 지정된 시간 내에 스케일 다운 이벤트가 반복되지 않도록 제한.
   * 기본값은 `300초`입니다.
 * **`selectPolicy`**:
   * `Max`: 최대 값을 선택
@@ -140,7 +176,7 @@ scaleUp:
   * `Disabled`: 스케일 다운을 비활성화
 * **`policies`**:
   * 스케일 다운 정책 목록을 정의합니다.
-  * 각 정책은 다음 두 가지 유형 중 하나를 사용할 수 있습니다.
+  * 각 정책은 다음 두 가지 유형 중 하나를 사용할 수 있다.
     * `Pods`: 파드 수를 기준으로 스케일 다운
     * `Percent`: 백분율로 스케일 다운
 
