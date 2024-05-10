@@ -1,6 +1,6 @@
 # 1차 script 기반 pod autoscaling 테스트
 
-* 현재 deployment에 cpu 100m, memory 128mi 할당
+* 현재 deployment에 cpu 100m, memory 128mi, targetCPUUtilizationPercentage: 30 할당
 
 <figure><img src="../../../../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
 
@@ -28,6 +28,10 @@
 
 
 
+
+* TARGETS 값 80%까지 오른 모습
+
+<figure><img src="../../../../.gitbook/assets/image (46).png" alt=""><figcaption><p>desiredReplicas = ceil(1 * (86 / 30)) = ceil(1 * 2.8667) = 3</p></figcaption></figure>
 
 * cpu 사용량이 늘어나는 모습
 
