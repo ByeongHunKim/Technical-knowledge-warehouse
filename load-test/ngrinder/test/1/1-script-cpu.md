@@ -1,4 +1,4 @@
-# 1차 테스트 script 기반 종합테스트
+# 1차 script 기반 cpu 사용량 테스트
 
 1\. swagger에서 직접 api 호출
 
@@ -6,20 +6,20 @@
 
     * 테스트로 swagger api로 아무 get api call 요청 클릭
 
-    <figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 *   after
 
     * 시간이 지난 뒤 다시 값이 원래대로 1m으로 내려옴
 
-    <figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 2. nGrinder로 부하주기
 
-<figure><img src="../../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>부하테스트 시작 직후 상태</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>부하테스트 시작 직후 상태</p></figcaption></figure>
 
 &#x20;
 
-<figure><img src="../../../../.gitbook/assets/image (4).png" alt=""><figcaption><p>부하 테스트 진행 중</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>부하 테스트 진행 중</p></figcaption></figure>
 
 <figure><img src="../../../../.gitbook/assets/image (7).png" alt=""><figcaption><p>늘어난 cpu 사용량</p></figcaption></figure>
 
