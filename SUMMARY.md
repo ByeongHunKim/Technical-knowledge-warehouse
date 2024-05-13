@@ -77,10 +77,11 @@
       * [Groovy script deep dive](load-test/ngrinder/script/groovy-script-structure/groovy-script-deep-dive.md)
       * [Groovy Script 실행 구조 분석](load-test/ngrinder/script/groovy-script-structure/groovy-script.md)
   * [Test](load-test/ngrinder/test/README.md)
-    * [1차 테스트](load-test/ngrinder/test/1/README.md)
-      * [1차 script 기반 cpu 사용량 테스트](load-test/ngrinder/test/1/1-script-cpu.md)
-      * [1차 script 기반 pod autoscaling 테스트](load-test/ngrinder/test/1/1-script-pod-autoscaling.md)
-    * [2차 테스트](load-test/ngrinder/test/2.md)
+    * [\[nGrinder\] single endpoint load test 하기](load-test/ngrinder/test/ngrinder-single-endpoint-load-test/README.md)
+      * [\[nGrinder\] single endpoint load test script 기반 cpu 사용량 테스트](load-test/ngrinder/test/ngrinder-single-endpoint-load-test/ngrinder-single-endpoint-load-test-script-cpu.md)
+      * [\[nGrinder\] single endpoint load test script 기반 pod autoscaling 테스트](load-test/ngrinder/test/ngrinder-single-endpoint-load-test/ngrinder-single-endpoint-load-test-script-pod-autoscaling.md)
+    * [\[nGrinder\] multi endpoint load test 하기](load-test/ngrinder/test/ngrinder-multi-endpoint-load-test/README.md)
+      * [\[nGrinder\] multi endpoint load test script에 정의한 test들이 실행 순서를 보장 받는가?](load-test/ngrinder/test/ngrinder-multi-endpoint-load-test/ngrinder-multi-endpoint-load-test-script-test.md)
 
 ## Tips
 

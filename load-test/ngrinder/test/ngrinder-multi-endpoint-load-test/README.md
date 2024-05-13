@@ -1,4 +1,4 @@
-# 2차 테스트
+# \[nGrinder] multi endpoint load test 하기
 
 {% hint style="info" %}
 3차 테스트는 실제 프로젝트 별 시나리오 바탕으로 진행
@@ -12,7 +12,27 @@
 
 {% embed url="https://kirinman.tistory.com/102" %}
 
-## 1. 여러 엔드포인트를 호출할 수 있는 스크립트 작성
+## 1. multi endpoint 부하테스트 스크립트 실행 순서도
+
+Groovy 스크립트를 이용한 테스트 실행 과정은 다음과 같다:
+
+1. **User** - 사용자는 테스트를 실행하라는 요청을 Controller에 보낸다
+2. **Initiates** **Agent** - Controller가 실제 부하를 생성하고, 타겟 서버에 요청을 보내도록 agent에 요청을 보낸다
+3. **@BeforeProcess** - 프로세스가 시작하기 전에 한 번 실행되며, 여기서 필요한 설정(예: HTTP 요청의 타임아웃 설정)과 초기화(예: HTTPRequest 객체 생성)가 이루어진다
+4. **@BeforeThread** - 각 스레드가 시작하기 전에 실행되며, 각 테스트 메서드(**`test1`**, **`test2`**, **`test3`**)를 GTest 객체에 등록하여 성능 메트릭을 추적하도록 설정한다
+5. **@Test** - 실제 테스트가 수행되는 메서드들로, 각각의 HTTP 요청에 대한 응답을 받고 그 결과를 검증한다
+   * 예를 들어, `test1,2,3`에서는 데이터 시뮬레이션을 위한 HTTP 요청을 보내고, 응답 코드가 200(OK)인지 확인한다
+
+<figure><img src="../../../../.gitbook/assets/image (48).png" alt=""><figcaption></figcaption></figure>
+
+
+
+## 2. multi endpoint 부하테스트용 스크립트 코드
+
+* assertThat
+  * `assertThat`은 JUnit 테스트에서 사용되는 검증 메서드 중 하나로, 특정 조건이 참인지 확인하는 역할
+    * 여기서 `is(`STATUS\_OK`)`은 Hamcrest 라이브러리의 매처(Matcher)를 사용하여 `statusCode`가 `is` 함수 인자에 있는 HTTP 응답 코드를 확인하여 API 요청이 성공적으로 완료되었는지를 판단
+    * 조건이 만족되지 않을 경우 `AssertionError`가 발생하고, 이 에러는 실패한 테스트의 원인을 설명하는 메시지 포함
 
 ```groovy
 import static net.grinder.script.Grinder.grinder
@@ -135,17 +155,29 @@ class TestRunner {
 
 ## 2. 스크립트를 실행할 테스트 구동
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ## 3. 테스트가 구동된 후 파드 scale out
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>targetCPUUtilizationPercentage 549%</p></figcaption></figure>
+{% hint style="info" %}
+targetCPUUtilizationPercentage 549% 로 상승하여 파드 scale out
+{% endhint %}
+
+<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption><p>targetCPUUtilizationPercentage 549%</p></figcaption></figure>
 
 ## 4. 테스트 종료 후 stabilizationWindowSeconds default 값인 300초 ( 5분 ) 후 scale down 진행
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+{% hint style="info" %}
+targetCPUUtilizationPercentage 1% 로 하락하여 파드 scale down
+{% endhint %}
+
+<figure><img src="../../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ## 5. nGrinder가 생성한 로그 확인
+
+{% hint style="info" %}
+test1,2,3 에 대한 결과 확인
+{% endhint %}
 
 ```
 2024-05-13 15:25:50,224 INFO  
