@@ -69,6 +69,7 @@
 ## &#x20;load test
 
 * [nGrinder](load-test/ngrinder/README.md)
+  * [nGrinder Test Configuration 값들](load-test/ngrinder/ngrinder-test-configuration.md)
   * [질문리스트](load-test/ngrinder/undefined/README.md)
     * [groovy는 JUnit 스타일에 포함되지 않는건가 ? + GTest가 뭔지 좀 헷갈린다](load-test/ngrinder/undefined/groovy-junit-+-gtest.md)
   * [Script](load-test/ngrinder/script/README.md)
