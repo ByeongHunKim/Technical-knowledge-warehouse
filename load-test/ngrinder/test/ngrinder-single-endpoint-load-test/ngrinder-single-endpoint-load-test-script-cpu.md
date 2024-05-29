@@ -1,4 +1,4 @@
-# 1차 script 기반 cpu 사용량 테스트
+# \[nGrinder] single endpoint load test script 기반 cpu 사용량 테스트
 
 1\. swagger에서 직접 api 호출
 
@@ -11,7 +11,7 @@
 
     * 시간이 지난 뒤 다시 값이 원래대로 1m으로 내려옴
 
-    <figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 2. nGrinder로 부하주기
 

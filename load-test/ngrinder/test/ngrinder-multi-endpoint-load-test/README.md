@@ -163,7 +163,7 @@ class TestRunner {
 targetCPUUtilizationPercentage 549% 로 상승하여 파드 scale out
 {% endhint %}
 
-<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption><p>targetCPUUtilizationPercentage 549%</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>targetCPUUtilizationPercentage 549%</p></figcaption></figure>
 
 ## 4. 테스트 종료 후 stabilizationWindowSeconds default 값인 300초 ( 5분 ) 후 scale down 진행
 

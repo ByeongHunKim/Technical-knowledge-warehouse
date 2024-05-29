@@ -84,6 +84,12 @@
     * [\[nGrinder\] multi endpoint load test 하기](load-test/ngrinder/test/ngrinder-multi-endpoint-load-test/README.md)
       * [\[nGrinder\] multi endpoint load test script에 정의한 test들이 실행 순서를 보장 받는가?](load-test/ngrinder/test/ngrinder-multi-endpoint-load-test/ngrinder-multi-endpoint-load-test-script-test.md)
 
+## EKS
+
+* [youtube links](eks/youtube-links.md)
+* [EKS best practice](eks/eks-best-practice.md)
+* [질문 정리](eks/undefined.md)
+
 ## Tips
 
 * [Kubernetes](tips/kubernetes/README.md)
