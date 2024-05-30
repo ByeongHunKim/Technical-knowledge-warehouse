@@ -34,3 +34,7 @@ terraform apply -var="vpc_region=us-west-2"
 이렇게 하면 기본값 `"ap-southeast-1"` 대신 `"us-west-2"`가 사용됩니다.
 
 따라서, `default` 값을 설정하면, 변수에 대한 필수 입력 요구를 줄일 수 있으멑, 테라폼 프로젝트의 유연성을 증가시킵니다.
+
+
+
+<figure><img src="../../.gitbook/assets/image (52).png" alt=""><figcaption></figcaption></figure>
