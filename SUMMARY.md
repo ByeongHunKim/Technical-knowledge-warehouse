@@ -93,22 +93,15 @@
 ***
 
 * [Terraform](terraform/README.md)
-  * [테라폼 설치](terraform/undefined.md)
+  * [테라폼 설치](terraform/undefined.md)
   * [테라폼 문서](terraform/undefined-1.md)
   * [테라폼 개념](terraform/undefined-2/README.md)
     * [언어 구조](terraform/undefined-2/undefined.md)
     * [사용 순서](terraform/undefined-2/undefined-1.md)
     * [상태파일 (tfstate)](terraform/undefined-2/tfstate.md)
     * [변수 정의 방법](terraform/undefined-2/undefined-2.md)
-  * [Terraform - AWS VPC](terraform/terraform-aws-vpc.md)
+  * [Terraform - AWS VPC](terraform/terraform-aws-vpc.md)
 
-## Tips
+## Ansible
 
-* [Kubernetes](tips/kubernetes/README.md)
-  * [k8s reference 1](https://kubetm.github.io/k8s/)
-  * [k8s reference 2](https://gasidaseo.notion.site/EKS-Workshop-6b3e478f112a40c3a46fcf67daca9063)
-
-## ideas
-
-* [Notifications to slack channels](ideas/notifications-to-slack-channels/README.md)
-  * [botkube](ideas/notifications-to-slack-channels/botkube.md)
+* [Ansible 초기 학습 내용](ansible/ansible.md)

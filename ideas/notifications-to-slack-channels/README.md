@@ -1,2 +1,0 @@
-# Notifications to slack channels
-
