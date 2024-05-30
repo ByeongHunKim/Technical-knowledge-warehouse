@@ -101,7 +101,6 @@
     * [상태파일 (tfstate)](terraform/undefined-2/tfstate.md)
     * [변수 정의 방법](terraform/undefined-2/undefined-2.md)
   * [Terraform - AWS VPC](terraform/terraform-aws-vpc.md)
-
-## Ansible
-
-* [Ansible 초기 학습 내용](ansible/ansible.md)
+* [Ansible](terraform-1/README.md)
+  * [Ansible 초기 학습 내용](terraform-1/ansible.md)
+  * [Ansible Playbook](terraform-1/ansible-playbook.md)
