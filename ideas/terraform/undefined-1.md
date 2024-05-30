@@ -1,5 +1,7 @@
 # 테라폼 문서
 
+{% embed url="https://developer.hashicorp.com/terraform/intro" %}
+
 {% embed url="https://registry.terraform.io/providers/hashicorp/aws/latest/docs" %}
 
 {% embed url="https://github.com/choisungwook/terraform_practice" %}
