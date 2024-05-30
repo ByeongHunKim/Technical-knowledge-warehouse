@@ -37,4 +37,4 @@ terraform apply -var="vpc_region=us-west-2"
 
 
 
-<figure><img src="../../.gitbook/assets/image (52).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (52).png" alt=""><figcaption></figcaption></figure>

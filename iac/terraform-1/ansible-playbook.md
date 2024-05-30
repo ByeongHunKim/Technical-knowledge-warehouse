@@ -2,9 +2,9 @@
 
 {% embed url="https://youtu.be/sqj7lSCagO4?si=_Dt4gMKnZZD9HnOB" %}
 
-<figure><img src="../.gitbook/assets/image (53).png" alt=""><figcaption><p>playbook 에제</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (53).png" alt=""><figcaption><p>playbook 에제</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (54).png" alt=""><figcaption><p>playbook 실행결과</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (54).png" alt=""><figcaption><p>playbook 실행결과</p></figcaption></figure>
 
 * 약분님 영상을 보고 응용한 상상을 해봤다.
 
