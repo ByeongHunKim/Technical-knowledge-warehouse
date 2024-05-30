@@ -90,6 +90,13 @@
 * [EKS best practice](eks/eks-best-practice.md)
 * [질문 정리](eks/undefined.md)
 
+***
+
+* [Terraform](terraform/README.md)
+  * [테라폼 설치](terraform/undefined.md)
+  * [테라폼 문서](terraform/undefined-1.md)
+  * [Terraform - AWS VPC](terraform/terraform-aws-vpc.md)
+
 ## Tips
 
 * [Kubernetes](tips/kubernetes/README.md)
@@ -100,6 +107,3 @@
 
 * [Notifications to slack channels](ideas/notifications-to-slack-channels/README.md)
   * [botkube](ideas/notifications-to-slack-channels/botkube.md)
-* [Terraform](ideas/terraform/README.md)
-  * [테라폼 설치](ideas/terraform/undefined.md)
-  * [테라폼 문서](ideas/terraform/undefined-1.md)
