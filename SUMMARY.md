@@ -100,4 +100,5 @@
 
 * [Notifications to slack channels](ideas/notifications-to-slack-channels/README.md)
   * [botkube](ideas/notifications-to-slack-channels/botkube.md)
-* [Terraform](ideas/terraform.md)
+* [Terraform](ideas/terraform/README.md)
+  * [테라폼 설치](ideas/terraform/undefined.md)
