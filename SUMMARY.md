@@ -95,6 +95,8 @@
 * [Terraform](terraform/README.md)
   * [테라폼 설치](terraform/undefined.md)
   * [테라폼 문서](terraform/undefined-1.md)
+  * [테라폼 개념](terraform/undefined-2/README.md)
+    * [변수 정의 방법](terraform/undefined-2/undefined.md)
   * [Terraform - AWS VPC](terraform/terraform-aws-vpc.md)
 
 ## Tips
