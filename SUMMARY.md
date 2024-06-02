@@ -104,3 +104,5 @@
 * [Ansible](iac/terraform-1/README.md)
   * [Ansible 초기 학습 내용](iac/terraform-1/ansible.md)
   * [Ansible Playbook](iac/terraform-1/ansible-playbook.md)
+  * [Ansible Study](iac/terraform-1/ansible-study/README.md)
+    * [Inventory](iac/terraform-1/ansible-study/inventory.md)
