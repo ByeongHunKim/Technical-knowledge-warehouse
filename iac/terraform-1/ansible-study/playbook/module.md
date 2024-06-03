@@ -24,3 +24,4 @@
 
 * copy
 * file
+* lineinfile

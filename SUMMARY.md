@@ -108,3 +108,4 @@
     * [Inventory](iac/terraform-1/ansible-study/inventory.md)
     * [Playbook](iac/terraform-1/ansible-study/playbook/README.md)
       * [Module](iac/terraform-1/ansible-study/playbook/module.md)
+    * [Variable](iac/terraform-1/ansible-study/variable.md)
