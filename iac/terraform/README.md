@@ -1,6 +1,6 @@
 # Terraform
 
-
+{% embed url="https://github.com/ByeongHunKim/Terraform" %}
 
 * aws resource 생성할 때 tf으로 생성할 수 있다면?
   * 리소스별 tf 파일 존재
