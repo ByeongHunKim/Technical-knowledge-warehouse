@@ -84,6 +84,11 @@
     * [\[nGrinder\] multi endpoint load test 하기](load-test/ngrinder/test/ngrinder-multi-endpoint-load-test/README.md)
       * [\[nGrinder\] multi endpoint load test script에 정의한 test들이 실행 순서를 보장 받는가?](load-test/ngrinder/test/ngrinder-multi-endpoint-load-test/ngrinder-multi-endpoint-load-test-script-test.md)
 
+## AWS
+
+* [aws-cli](aws/aws-cli/README.md)
+  * [eks cluster vpc 스펙보기](aws/aws-cli/eks-cluster-vpc.md)
+
 ## EKS
 
 * [youtube links](eks/youtube-links.md)
