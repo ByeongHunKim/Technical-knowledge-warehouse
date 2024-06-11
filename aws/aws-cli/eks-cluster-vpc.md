@@ -24,5 +24,7 @@ aws ec2 describe-subnets --filters "Name=vpc-id,Values=$VPC_ID" --query "Subnets
 ```
 {% endcode %}
 
-
+```bash
+history | sed -n '6000,7000p'
+```
 
