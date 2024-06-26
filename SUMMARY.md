@@ -1,26 +1,8 @@
 # Table of contents
 
-## 2024
+## Group 1
 
-* [The DevOps Camino of Akaps](README.md)
-* [3월](2024/3/README.md)
-  * [29일](2024/3/3-29.md)
-* [4월](2024/4/README.md)
-  * [업무 일지](2024/4/undefined.md)
-  * [업무 기록](2024/4/undefined-1/README.md)
-    * [Grafana 대시보드, Alert 환경 구성](2024/4/undefined-1/grafana-alert.md)
-  * [1일](2024/4/1.md)
-  * [2일](2024/4/2.md)
-  * [3일](2024/4/3.md)
-  * [4일](2024/4/4.md)
-  * [5일](2024/4/5.md)
-  * [8일](2024/4/8.md)
-  * [9일](2024/4/9.md)
-  * [15일](2024/4/15.md)
-  * [16일](2024/4/16.md)
-  * [17일](2024/4/17.md)
-* [5월](2024/5/README.md)
-  * [업무일지](2024/5/undefined.md)
+* [Meiko DevOps Cookbook](README.md)
 
 ## Gitlab
 

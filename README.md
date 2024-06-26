@@ -1,20 +1,9 @@
-<p align="center">
-    <h1 align="center">
-        Technical-knowledge-warehouse
-    </h1>
-    <p align="center">History of DevOps Camino</p>
-</p>
+# Meiko DevOps Cookbook
 
-## page link list
+### 개발자들의 생산성 향상이 비즈니스 전체를 위한 것이라는 인식과 헌신
 
-|               | Gitbook                                 | 
-|---------------|-----------------------------------------| 
-| Homepage      | [link](https://akaps.gitbook.io/devops) |
-| Daily History | [link](https://akaps.gitbook.io/devops/2024/3)   | 
-| Gitlab        | [link](https://akaps.gitbook.io/devops/gitlab/ci-cd-notifications) |
-| Kubernetes    | [link](https://akaps.gitbook.io/devops/kubernetes/ingress) |
-| Loki          | [link](https://akaps.gitbook.io/devops/loki/loki-grafana-alert) |
-| Tips          | [link](https://akaps.gitbook.io/devops/tips/kubernetes) |
-| Ideas         | [link](https://akaps.gitbook.io/devops/ideas/notifications-to-slack-channels) |
-
----
+* Gitlab
+* Kubernetes ( EKS )
+* Load Test
+* AWS
+* IAC
