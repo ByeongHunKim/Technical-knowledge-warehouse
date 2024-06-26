@@ -1,6 +1,6 @@
 # Table of contents
 
-## Group 1
+## Home
 
 * [Meiko DevOps Cookbook](README.md)
 
