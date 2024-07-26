@@ -70,6 +70,7 @@
 
 * [aws-cli](aws/aws-cli/README.md)
   * [eks cluster vpc 스펙보기](aws/aws-cli/eks-cluster-vpc.md)
+* [aws-vpc](aws/aws-vpc.md)
 
 ## EKS
 
