@@ -101,7 +101,8 @@
 ## etc
 
 * [Elastic Load Balancing](etc/elastic-load-balancing.md)
-* [낙서장](etc/undefined.md)
+* [낙서장](etc/undefined/README.md)
+  * [IRSA](etc/undefined/irsa.md)
 * [deep dive](etc/deep-dive/README.md)
   * [istio 에 대해서](etc/deep-dive/istio.md)
   * [eks 에서 control plane < - > data plane 통신 원리](etc/deep-dive/eks-control-plane-less-than-greater-than-data-plane.md)
