@@ -108,4 +108,5 @@
     * [Overview](etc/deep-dive/istio/overview/README.md)
       * [What is Istio?](etc/deep-dive/istio/overview/what-is-istio.md)
       * [Why choose Istio?](etc/deep-dive/istio/overview/why-choose-istio.md)
+      * [Sidecar or ambient?](etc/deep-dive/istio/overview/sidecar-or-ambient.md)
   * [eks 에서 control plane < - > data plane 통신 원리](etc/deep-dive/eks-control-plane-less-than-greater-than-data-plane.md)
