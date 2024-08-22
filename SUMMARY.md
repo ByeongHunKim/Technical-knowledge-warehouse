@@ -78,6 +78,11 @@
 * [EKS best practice](eks/eks-best-practice.md)
 * [질문 정리](eks/undefined.md)
 
+## Istio
+
+* [Gateway](istio/gateway/README.md)
+  * [Istio Gateway와 Kubernetes Ingress의 주요 차이점](istio/gateway/istio-gateway-kubernetes-ingress.md)
+
 ## IAC
 
 * [Terraform](iac/terraform/README.md)
