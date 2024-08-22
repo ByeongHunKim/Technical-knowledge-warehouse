@@ -81,6 +81,7 @@
 ## Istio
 
 * [Gateway](istio/gateway/README.md)
+  * [Gateway 주요 특징](istio/gateway/gateway.md)
   * [Istio Gateway와 Kubernetes Ingress의 주요 차이점](istio/gateway/istio-gateway-kubernetes-ingress.md)
 
 ## IAC
