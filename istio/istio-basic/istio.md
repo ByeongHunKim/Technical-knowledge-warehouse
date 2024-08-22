@@ -12,4 +12,4 @@ Istio Gateway, VirtualService, DestinationRule, AuthorizationPolicy, EnvoyFilter
    * 클러스터로 들어오는 외부 트래픽을 처리하는 특별한 Envoy 프록시입니다.
    * Gateway 및 VirtualService 설정에 따라 트래픽을 내부 서비스로 라우팅합니다.
 
-따라서, 이 Istio 커스텀 리소스들은 트래픽 관리를 위한 "설계도" 역할을 하며, Envoy 프록시가 이 설계도에 따라 실제 트래픽을 처리합니다. 이러한 아키텍처는 정책 정의와 실행을 분리하여 유연성과 확장성을 제공합니다.이미지에서 볼 수 있듯이, istio-ingressgateway가 외부에서 들어오는 트래픽을 받아 내부 서비스(staging-auto-deploy 또는 review-developmen-id0r3d-auto-deploy)로 라우팅하는 것을 확인할 수 있습니다. 이 라우팅 결정은 VirtualService, DestinationRule 등의 설정에 기반하여 이루어집니다.
+따라서, 이 Istio 커스텀 리소스들은 트래픽 관리를 위한 "설계도" 역할을 하며, Envoy 프록시가 이 설계도에 따라 실제 트래픽을 처리합니다. 이러한 아키텍처는 정책 정의와 실행을 분리하여 유연성과 확장성을 제공합니다.이미지에서 볼 수 있듯이, istio-ingressgateway가 외부에서 들어오는 트래픽을 받아 내부 서비스로 라우팅하는 것을 확인할 수 있습니다. 이 라우팅 결정은 VirtualService, DestinationRule 등의 설정에 기반하여 이루어집니다.
