@@ -82,6 +82,7 @@
 
 * [Istio Basic](istio/istio-basic/README.md)
   * [Istio 컴포넌트 별 역할](istio/istio-basic/istio.md)
+  * [Kubernetes Ingress와 Istio VirtualService의 관계](istio/istio-basic/kubernetes-ingress-istio-virtualservice.md)
 * [Gateway](istio/gateway/README.md)
   * [Gateway 주요 특징](istio/gateway/gateway.md)
   * [Istio Gateway와 Kubernetes Ingress의 주요 차이점](istio/gateway/istio-gateway-kubernetes-ingress.md)
