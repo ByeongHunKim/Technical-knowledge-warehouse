@@ -109,9 +109,10 @@
 
 ## etc
 
+* [Toss SLASH24](etc/toss-slash24.md)
 * [Elastic Load Balancing](etc/elastic-load-balancing.md)
 * [낙서장](etc/undefined/README.md)
-  * [IRSA](etc/undefined/irsa.md)
+  * [IRSA](etc/undefined/irsa.md)
 * [deep dive](etc/deep-dive/README.md)
   * [Istio 공식문서 번역](etc/deep-dive/istio/README.md)
     * [Overview](etc/deep-dive/istio/overview/README.md)
